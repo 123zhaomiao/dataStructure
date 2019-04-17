@@ -23,7 +23,6 @@ void TestBack()
 //测试头部插入和尾部删除
 void TestFront()
 {
-
 	//初始化
 	InitSeqList(&seq);
 	//头部插入
