@@ -33,7 +33,6 @@ void TestSharedStack()
 	PopSharedStack(&s, 1);
 	//栈2出栈
 	PopSharedStack(&s, 2);
-
 	//栈1栈顶
 	printf("栈1栈顶=%d\n", SharedStackTop(&s, 1));
 	//栈2栈顶
