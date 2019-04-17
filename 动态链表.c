@@ -1,281 +1,281 @@
 #include"SeqList.h"
-SeqList seq;    //¶¨ÒåÒ»¸öÈ«¾Ö±äÁ¿seq
+SeqList seq;    //å®šä¹‰ä¸€ä¸ªå…¨å±€å˜é‡seq
 
-//²âÊÔÎ²²¿²åÈëºÍÎ²²¿É¾³ı
+//æµ‹è¯•å°¾éƒ¨æ’å…¥å’Œå°¾éƒ¨åˆ é™¤
 void TestBack()
 {
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	InitSeqList(&seq);
-	//Î²²¿²åÈë
+	//å°¾éƒ¨æ’å…¥
 	PushBackSeqList(&seq, 1);
 	PushBackSeqList(&seq, 2);
 	PushBackSeqList(&seq, 3);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
-	//Î²²¿É¾³ı
+	//å°¾éƒ¨åˆ é™¤
 	PopBackSeqList(&seq);
 	PopBackSeqList(&seq);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
 }
 
 
-//²âÊÔÍ·²¿²åÈëºÍÎ²²¿É¾³ı
+//æµ‹è¯•å¤´éƒ¨æ’å…¥å’Œå°¾éƒ¨åˆ é™¤
 void TestFront()
 {
 
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	InitSeqList(&seq);
-	//Í·²¿²åÈë
+	//å¤´éƒ¨æ’å…¥
 	PushFrontSeqList(&seq, 3);
 	PushFrontSeqList(&seq, 2);
 	PushFrontSeqList(&seq, 1);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
-	//Í·²¿É¾³ı
+	//å¤´éƒ¨åˆ é™¤
 	PopFrontSeqList(&seq);
 	PopFrontSeqList(&seq);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
 }
 
 
-//²âÊÔ²éÕÒÖ¸¶¨ÔªËØ
+//æµ‹è¯•æŸ¥æ‰¾æŒ‡å®šå…ƒç´ 
 void TestFind()
 {
 	int pos = 0;
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	InitSeqList(&seq);
-	//Î²²¿²åÈë
+	//å°¾éƒ¨æ’å…¥
 	PushBackSeqList(&seq, 1);
 	PushBackSeqList(&seq, 2);
 	PushBackSeqList(&seq, 3);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
-	//²éÕÒÖ¸¶¨ÔªËØ
+	//æŸ¥æ‰¾æŒ‡å®šå…ƒç´ 
 	pos = FindSeqList(&seq, 2);
 	if (pos == -1)
 	{
-		printf("Ã»ÓĞÕÒµ½£¡\n");
+		printf("æ²¡æœ‰æ‰¾åˆ°ï¼\n");
 		return;
 	}
 	else
 	{
-		printf("ÏÂ±êÊÇ£º%d\n", pos);
-		//Ö¸¶¨Î»ÖÃ²åÈë
+		printf("ä¸‹æ ‡æ˜¯ï¼š%d\n", pos);
+		//æŒ‡å®šä½ç½®æ’å…¥
 		Insert(&seq, pos, 4);
-		//´òÓ¡
+		//æ‰“å°
 		PrintSeqList(&seq);
-		//Ö¸¶¨Î»ÖÃÉ¾³ı
+		//æŒ‡å®šä½ç½®åˆ é™¤
 		Erase(&seq, pos);
-		//´òÓ¡
+		//æ‰“å°
 		PrintSeqList(&seq);
 	}
 	
 }
 
 
-//²âÊÔÉ¾³ıÖ¸¶¨ÔªËØ
+//æµ‹è¯•åˆ é™¤æŒ‡å®šå…ƒç´ 
 void TestRemove()
 {
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	InitSeqList(&seq);
-	//Î²²¿²åÈë
+	//å°¾éƒ¨æ’å…¥
 	PushBackSeqList(&seq, 1);
 	PushBackSeqList(&seq, 2);
 	PushBackSeqList(&seq, 3);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
-	//É¾³ıÖ¸¶¨ÔªËØ
+	//åˆ é™¤æŒ‡å®šå…ƒç´ 
 	Remove(&seq, 3);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
 }
 
-//²âÊÔÉ¾³ıËùÓĞµÄÖ¸¶¨ÔªËØ
+//æµ‹è¯•åˆ é™¤æ‰€æœ‰çš„æŒ‡å®šå…ƒç´ 
 void TestRemoveAll()
 {
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	InitSeqList(&seq);
-	//Î²²¿²åÈë
+	//å°¾éƒ¨æ’å…¥
 	PushBackSeqList(&seq, 1);
 	PushBackSeqList(&seq, 2);
 	PushBackSeqList(&seq, 1);
 	PushBackSeqList(&seq, 3);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
-	//É¾³ıÖ¸¶¨ÔªËØ
+	//åˆ é™¤æŒ‡å®šå…ƒç´ 
 	RemoveAll(&seq, 3);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
 }
 
-//·µ»ØË³Ğò±íµÄ´óĞ¡
+//è¿”å›é¡ºåºè¡¨çš„å¤§å°
 void TestSize()
 {
 	int sz = 0;
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	InitSeqList(&seq);
-	//Î²²¿²åÈë
+	//å°¾éƒ¨æ’å…¥
 	PushBackSeqList(&seq, 1);
 	PushBackSeqList(&seq, 2);
 	PushBackSeqList(&seq, 1);
 	PushBackSeqList(&seq, 3);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
 	sz = sizeSeqList(&seq);
 	printf("sz=%d\n", sz);
 }
 
-//ÅĞ¶ÏË³Ğò±íÊÇ·ñÎª¿Õ
+//åˆ¤æ–­é¡ºåºè¡¨æ˜¯å¦ä¸ºç©º
 void TestEmpty()
 {
 	int sz = 0;
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	InitSeqList(&seq);
-	//Î²²¿²åÈë
+	//å°¾éƒ¨æ’å…¥
 	PushBackSeqList(&seq, 1);
 	PushBackSeqList(&seq, 2);
 	PushBackSeqList(&seq, 1);
 	PushBackSeqList(&seq, 3);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
 	sz = EmptySeqList(&seq);
 	if (sz == -1)
 	{
-		printf("Ë³Ğò±íÎª¿Õ£¡\n");
+		printf("é¡ºåºè¡¨ä¸ºç©ºï¼\n");
 	}
 	else
 	{
-		printf("Ë³Ğò±í²»Îª¿Õ£¡\n");
+		printf("é¡ºåºè¡¨ä¸ä¸ºç©ºï¼\n");
 	}
 }
 
-//²âÊÔÃ°ÅİÅÅĞò
+//æµ‹è¯•å†’æ³¡æ’åº
 void TestBubble()
 {
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	InitSeqList(&seq);
-	//Î²²¿²åÈë
+	//å°¾éƒ¨æ’å…¥
 	PushBackSeqList(&seq, 6);
 	PushBackSeqList(&seq, 2);
 	PushBackSeqList(&seq, 1);
 	PushBackSeqList(&seq, 4);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
 	Bubblesort(&seq);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
 }
 
-//²âÊÔÑ¡ÔñÅÅĞò
+//æµ‹è¯•é€‰æ‹©æ’åº
 void TestSelectSort()
 {
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	InitSeqList(&seq);
-	//Î²²¿²åÈë
+	//å°¾éƒ¨æ’å…¥
 	PushBackSeqList(&seq, 6);
 	PushBackSeqList(&seq, 2);
 	PushBackSeqList(&seq, 4);
 	PushBackSeqList(&seq, 1);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
 	SelectSort(&seq);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
 }
 
-//²âÊÔÑ¡ÔñÅÅĞòµÄÓÅ»¯
+//æµ‹è¯•é€‰æ‹©æ’åºçš„ä¼˜åŒ–
 void  TestSelectSort_OP()
 {
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	InitSeqList(&seq);
-	//Î²²¿²åÈë
+	//å°¾éƒ¨æ’å…¥
 	PushBackSeqList(&seq, 6);
 	PushBackSeqList(&seq, 2);
 	PushBackSeqList(&seq, 4);
 	PushBackSeqList(&seq, 1);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
 	SelectSort_OP(&seq);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
 }
 
-//¶ş·Ö²éÕÒ
+//äºŒåˆ†æŸ¥æ‰¾
 void TestBinarySearch()
 {
 	int pos = 0;
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	InitSeqList(&seq);
-	//Î²²¿²åÈë
+	//å°¾éƒ¨æ’å…¥
 	PushBackSeqList(&seq, 1);
 	PushBackSeqList(&seq, 2);
 	PushBackSeqList(&seq, 3);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
 	pos = BinarySearch(&seq, 1
 		);
 	if (pos == -1)
 	{
-		printf("Ã»ÓĞÕÒµ½£¡\n");
+		printf("æ²¡æœ‰æ‰¾åˆ°ï¼\n");
 		return;
 	}
 	else
 	{
-		printf("ÏÂ±êÎª£º%d\n", pos);
+		printf("ä¸‹æ ‡ä¸ºï¼š%d\n", pos);
 	}
 }
 
-//¶ş·Ö²éÕÒµİ¹é
+//äºŒåˆ†æŸ¥æ‰¾é€’å½’
 void TestBinarySearch_R()
 {
 	int pos = 0;
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	InitSeqList(&seq);
-	//Î²²¿²åÈë
+	//å°¾éƒ¨æ’å…¥
 	PushBackSeqList(&seq, 1);
 	PushBackSeqList(&seq, 2);
 	PushBackSeqList(&seq, 3);
 	PushBackSeqList(&seq, 4);
-	//´òÓ¡
+	//æ‰“å°
 	PrintSeqList(&seq);
 	pos = BinarySearch_R(&seq,0,seq.sz-1, 1);
 	if (pos == -1)
 	{
-		printf("Ã»ÓĞÕÒµ½£¡\n");
+		printf("æ²¡æœ‰æ‰¾åˆ°ï¼\n");
 		return;
 	}
 	else
 	{
-		printf("ÏÂ±êÎª£º%d\n", pos);
+		printf("ä¸‹æ ‡ä¸ºï¼š%d\n", pos);
 	}
 }
 void test()
 {
-	//²âÊÔÎ²²¿²åÈëºÍÎ²²¿É¾³ı
+	//æµ‹è¯•å°¾éƒ¨æ’å…¥å’Œå°¾éƒ¨åˆ é™¤
 	TestBack();
-	//²âÊÔÍ·²¿²åÈëºÍÎ²²¿É¾³ı
+	//æµ‹è¯•å¤´éƒ¨æ’å…¥å’Œå°¾éƒ¨åˆ é™¤
 	//TestFront();
-	//²âÊÔ²éÕÒÖ¸¶¨ÔªËØÒÔ¼°Ö¸¶¨Î»ÖÃ²åÈëºÍÖ¸¶¨Î»ÖÃÉ¾³ı
+	//æµ‹è¯•æŸ¥æ‰¾æŒ‡å®šå…ƒç´ ä»¥åŠæŒ‡å®šä½ç½®æ’å…¥å’ŒæŒ‡å®šä½ç½®åˆ é™¤
 	//TestFind();
-	//²âÊÔÉ¾³ıÖ¸¶¨ÔªËØ
+	//æµ‹è¯•åˆ é™¤æŒ‡å®šå…ƒç´ 
 	//TestRemove();
-	//²âÊÔÉ¾³ıËùÓĞµÄÖ¸¶¨ÔªËØ
+	//æµ‹è¯•åˆ é™¤æ‰€æœ‰çš„æŒ‡å®šå…ƒç´ 
 	//TestRemoveAll();
-	//·µ»ØË³Ğò±íµÄ´óĞ¡
+	//è¿”å›é¡ºåºè¡¨çš„å¤§å°
 	//TestSize();
-	//ÅĞ¶ÏË³Ğò±íÊÇ·ñÎª¿Õ
+	//åˆ¤æ–­é¡ºåºè¡¨æ˜¯å¦ä¸ºç©º
 	//TestEmpty();
-	//²âÊÔÃ°ÅİÅÅĞò
+	//æµ‹è¯•å†’æ³¡æ’åº
 	//TestBubble();
-	//²âÊÔÑ¡ÔñÅÅĞò
+	//æµ‹è¯•é€‰æ‹©æ’åº
 	//TestSelectSort();
-	//²âÊÔÑ¡ÔñÅÅĞòµÄÓÅ»¯
+	//æµ‹è¯•é€‰æ‹©æ’åºçš„ä¼˜åŒ–
 	//TestSelectSort_OP();
-	//¶ş·Ö²éÕÒ
+	//äºŒåˆ†æŸ¥æ‰¾
 	//TestBinarySearch();
-	//¶ş·Ö²éÕÒµİ¹é
+	//äºŒåˆ†æŸ¥æ‰¾é€’å½’
 	//TestBinarySearch_R();
 }
 int main()
