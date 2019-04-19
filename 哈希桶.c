@@ -3,9 +3,9 @@
 void Test()
 {
 	HashBucket hashbucket;
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	InitHashBucket(&hashbucket);
-	//²åÈë
+	//æ’å…¥
 	InsertHashBucket(&hashbucket, 5);
 	InsertHashBucket(&hashbucket, 12);
 	InsertHashBucket(&hashbucket, 2);
@@ -13,16 +13,16 @@ void Test()
 	InsertHashBucket(&hashbucket, 22);
 	InsertHashBucket(&hashbucket, 16);
 	InsertHashBucket(&hashbucket, 3);
-	//É¾³ı
+	//åˆ é™¤
 	DeleteHashBucket(&hashbucket, 2);
-	//²éÕÒ
+	//æŸ¥æ‰¾
 	if (FindHashBucket(&hashbucket, 22))
 	{
-		printf("¸ÃÔªËØ´æÔÚ!\n");
+		printf("è¯¥å…ƒç´ å­˜åœ¨!\n");
 	}
 	else
 	{
-		printf("ÕÒ²»µ½¸ÃÔªËØ!\n");
+		printf("æ‰¾ä¸åˆ°è¯¥å…ƒç´ !\n");
 	}
 	printf("Size=%d\n", SizeHashBucket(&hashbucket));
 }
