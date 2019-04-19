@@ -3,9 +3,9 @@
 void Test()
 {
 	BitMap bit;
-	//初始化比特位
+	//鲁玫脢录禄炉卤脠脤脴脦禄
 	InitBitMap(&bit,100);
-	//置1
+	//脰脙1
 	SetBitMap(&bit, 9);
 	SetBitMap(&bit, 32);
 	SetBitMap(&bit, 22);
@@ -21,7 +21,7 @@ void Test()
 		printf("32 bit is 0\n");
 	}
 
-	//置0
+	//脰脙0
 	ResetBitMap(&bit, 32);
 	ResetBitMap(&bit, 22);
 	ResetBitMap(&bit, 12);
