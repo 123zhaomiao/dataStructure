@@ -10,13 +10,13 @@ typedef struct SharedStack
 	int top1;
 	int top2;
 }sharedstack;
-//¹²ÏíÕ»³õÊ¼»¯
+//å…±äº«æ ˆåˆå§‹åŒ–
 void InitShared(sharedstack *s);
-//Õ»¶¥
+//æ ˆé¡¶
 DataType SharedStackTop(sharedstack *s, int which);
-//Õ»³¤¶Ì
+//æ ˆé•¿çŸ­
 DataType SharedStackSize(sharedstack *s, int which);
-//ÈëÕ»
+//å…¥æ ˆ
 void PushSharedStack(sharedstack *s,DataType d, int which);
-//³öÕ»
+//å‡ºæ ˆ
 void PopSharedStack(sharedstack *s, int which);
