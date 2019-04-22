@@ -1,5 +1,5 @@
 #include"SharedStack.h"
-//π≤œÌ’ª≥ı ºªØ
+//ÂÖ±‰∫´Ê†àÂàùÂßãÂåñ
 void InitShared(sharedstack *s)
 {
 	assert(s);
@@ -7,7 +7,7 @@ void InitShared(sharedstack *s)
 	s->top2 = Max - 1;
 	memset(s->data, 0, Max*sizeof(DataType));
 }
-//»Î’ª
+//ÂÖ•Ê†à
 void PushSharedStack(sharedstack *s, DataType d, int which)
 {
 	assert(s);
@@ -19,7 +19,7 @@ void PushSharedStack(sharedstack *s, DataType d, int which)
 		}
 		else
 		{
-			printf("’ª“—¬˙£°\n");
+			printf("Ê†àÂ∑≤Êª°ÔºÅ\n");
 			return;
 		}
 	}
@@ -31,13 +31,13 @@ void PushSharedStack(sharedstack *s, DataType d, int which)
 		}
 		else
 		{
-			printf("’ª“—¬˙£°\n");
+			printf("Ê†àÂ∑≤Êª°ÔºÅ\n");
 			return;
 		}
 	}
 }
 
-//’ª∂•
+//Ê†àÈ°∂
 DataType SharedStackTop(sharedstack *s, int which)
 {
 	assert(s);
@@ -45,7 +45,7 @@ DataType SharedStackTop(sharedstack *s, int which)
 	{
 		if (s->top1 == 0)
 		{
-			printf("’ªø’£°\n");
+			printf("Ê†àÁ©∫ÔºÅ\n");
 			return -1;
 		}
 		else
@@ -55,7 +55,7 @@ DataType SharedStackTop(sharedstack *s, int which)
 	{
 		if (s->top2 == Max-1)
 		{
-			printf("’ªø’£°\n");
+			printf("Ê†àÁ©∫ÔºÅ\n");
 			return -1;
 		}
 		else
@@ -63,7 +63,7 @@ DataType SharedStackTop(sharedstack *s, int which)
 	}
 }
 
-//’ª≥§∂Ã
+//Ê†àÈïøÁü≠
 DataType SharedStackSize(sharedstack *s, int which)
 {
 	assert(s);
@@ -75,7 +75,7 @@ DataType SharedStackSize(sharedstack *s, int which)
 		return Max - s->top2 - 1;
 }
 
-//≥ˆ’ª
+//Âá∫Ê†à
 void PopSharedStack(sharedstack *s, int which)
 {
 	assert(s); 
@@ -83,7 +83,7 @@ void PopSharedStack(sharedstack *s, int which)
 	{
 		if (s->top1 == 0)
 		{
-			printf("’ªø’£°\n");
+			printf("Ê†àÁ©∫ÔºÅ\n");
 			return;
 		}
 		else
@@ -95,7 +95,7 @@ void PopSharedStack(sharedstack *s, int which)
 	{
 		if (s->top2 == Max-1)
 		{
-			printf("’ªø’£°\n");
+			printf("Ê†àÁ©∫ÔºÅ\n");
 			return;
 		}
 		else
