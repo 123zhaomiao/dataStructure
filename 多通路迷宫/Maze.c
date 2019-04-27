@@ -1,6 +1,6 @@
 #include"Maze.h"
 
-//Õ»³õÊ¼»¯
+//æ ˆåˆå§‹åŒ–
 void StackInit(stack *s)
 {
 	assert(s);
@@ -8,26 +8,26 @@ void StackInit(stack *s)
 	memset(s->data, 0, 20 * sizeof(position));
 }
 
-//ÈëÕ»
+//å…¥æ ˆ
 void Pushstack(stack* s, position enter)
 {
 	assert(s);
 	s->data[s->top++] = enter;
 }
 
-//³öÕ»
+//å‡ºæ ˆ
 void PopStack(stack* s)
 {
 	assert(s);
 	s->top--;
 }
 
-//ÅĞ¶ÏÈë¿ÚÊÇ·ñÓĞĞ§
+//åˆ¤æ–­å…¥å£æ˜¯å¦æœ‰æ•ˆ
 int IsEnter(int Maze[ROW][COL], position enter)
 {
 	if (enter.x == 0 || enter.x == ROW - 1 || enter.y == 0 || enter.y == COL - 1)
 	{
-		//Èë¿Ú¼´±ß½ç
+		//å…¥å£å³è¾¹ç•Œ
 		return 1;
 	}
 	else
@@ -35,13 +35,13 @@ int IsEnter(int Maze[ROW][COL], position enter)
 }
 
 
-//ÅĞ¶ÏÊÇ·ñÊÇÍ¨Â·
+//åˆ¤æ–­æ˜¯å¦æ˜¯é€šè·¯
 int IsPass(int Maze[ROW][COL], position enter, position next)
 {
-	//1. ÏÂÒ»²½ÓĞĞ§
+	//1. ä¸‹ä¸€æ­¥æœ‰æ•ˆ
 	if (next.x >= 0 && next.x < ROW&&next.y >= 0 && next.y < COL)
 	{
-		//2.ÈôÎª1£¬»òÕßnext±Èenter´ó¼´ÎªÍ¨Â·
+		//2.è‹¥ä¸º1ï¼Œæˆ–è€…nextæ¯”enterå¤§å³ä¸ºé€šè·¯
 		if (Maze[next.x][next.y] == 1 || Maze[next.x][next.y] > Maze[enter.x][enter.y])
 		{
 			return 1;
@@ -50,10 +50,10 @@ int IsPass(int Maze[ROW][COL], position enter, position next)
 	return 0;
 }
 
-//ÅĞ¶ÏÊÇ·ñÊÇ³ö¿Ú
+//åˆ¤æ–­æ˜¯å¦æ˜¯å‡ºå£
 int IsExit(int Maze[ROW][COL], position Enter, position cur)
 {
-	//ÊÇ±ß½ç£¬µ«²»ÊÇÈë¿Ú
+	//æ˜¯è¾¹ç•Œï¼Œä½†ä¸æ˜¯å…¥å£
 	if ((cur.x == 0 || cur.x == ROW - 1 || cur.y == 0 || cur.y == COL - 1)&&(cur.x!=Enter.x||cur.y!=Enter.y) )
 	{
 		return 1;
@@ -61,10 +61,10 @@ int IsExit(int Maze[ROW][COL], position Enter, position cur)
 	return 0;
 }
 
-//ÅĞ¶ÏÊÇ·ñÊÇ×î¶ÌÂ·¾¶
+//åˆ¤æ–­æ˜¯å¦æ˜¯æœ€çŸ­è·¯å¾„
 int IsShortPath(stack *path, stack *shortpath)
 {
-	//×î¶ÌÂ·¾¶Õ»Îª¿Õ»òÕßĞÂÂ·¾¶±ÈÖ®Ç°Â·¾¶¶Ì
+	//æœ€çŸ­è·¯å¾„æ ˆä¸ºç©ºæˆ–è€…æ–°è·¯å¾„æ¯”ä¹‹å‰è·¯å¾„çŸ­
 	if (shortpath->top == 0||path->top < shortpath->top)
 	{
 		return 1;
@@ -72,23 +72,23 @@ int IsShortPath(stack *path, stack *shortpath)
 	return 0;
 }
 
-//×ßÃÔ¹¬  EnterÎªÃÔ¹¬½ø¿Ú  enterÎªµİ¹éµÄÃÔ¹¬½ø¿Ú£¬pathÎªÂ·¾¶£¬shortpathÎª×î¶ÌÂ·¾¶
+//èµ°è¿·å®«  Enterä¸ºè¿·å®«è¿›å£  enterä¸ºé€’å½’çš„è¿·å®«è¿›å£ï¼Œpathä¸ºè·¯å¾„ï¼Œshortpathä¸ºæœ€çŸ­è·¯å¾„
 void  PassMaze(int Maze[ROW][COL], position Enter, position enter, stack * path, stack *shortpath)
 {
 	int i = 0;
 	position next;
-	//ÅĞ¶ÏÈë¿ÚÊÇ·ñÓĞĞ§(Ö»µ±Maze[x][y]==1Ê±ÅĞ¶ÏÒ»´Î)
+	//åˆ¤æ–­å…¥å£æ˜¯å¦æœ‰æ•ˆ(åªå½“Maze[x][y]==1æ—¶åˆ¤æ–­ä¸€æ¬¡)
 	if (Maze[enter.x][enter.y] == 1&&IsEnter(Maze, enter))
 	{
-		//ÃÔ¹¬Èë¿ÚÈëÕ»
+		//è¿·å®«å…¥å£å…¥æ ˆ
 		Pushstack(path,enter);
 		Maze[enter.x][enter.y] = 2;
 	}
 
-	//ÅĞ¶ÏÊÇ·ñÊÇ³ö¿Ú
+	//åˆ¤æ–­æ˜¯å¦æ˜¯å‡ºå£
 	if (IsExit(Maze,Enter,enter))
 	{
-		//ÅĞ¶ÏÊÇ·ñÊÇ×î¶ÌÂ·¾¶
+		//åˆ¤æ–­æ˜¯å¦æ˜¯æœ€çŸ­è·¯å¾„
 		if (IsShortPath(path, shortpath))
 		{
 			for (i = 0; i < path->top; i++)
@@ -99,18 +99,18 @@ void  PassMaze(int Maze[ROW][COL], position Enter, position enter, stack * path,
 		}
 	}
 
-	//ÉÏ
+	//ä¸Š
 	next = enter;
 	next.x = enter.x - 1;
 	if (IsPass(Maze, enter, next))
 	{
 		Pushstack(path, next);
 		Maze[next.x][next.y] = Maze[enter.x][enter.y] + 1;
-		//½«ÏÂÒ»²½µ±×÷µİ¹éµÄÈë¿Ú
+		//å°†ä¸‹ä¸€æ­¥å½“ä½œé€’å½’çš„å…¥å£
 	    PassMaze(Maze, Enter, next, path, shortpath);
 	}
 
-	//×ó
+	//å·¦
 	next = enter;
 	next.y = enter.y - 1;
 	if (IsPass(Maze, enter, next))
@@ -119,7 +119,7 @@ void  PassMaze(int Maze[ROW][COL], position Enter, position enter, stack * path,
 		Maze[next.x][next.y] = Maze[enter.x][enter.y] + 1;
 		PassMaze(Maze, Enter, next, path, shortpath);
 	}
-	//ÓÒ
+	//å³
 	next = enter;
 	next.y = enter.y + 1;
 	if (IsPass(Maze, enter, next))
@@ -128,7 +128,7 @@ void  PassMaze(int Maze[ROW][COL], position Enter, position enter, stack * path,
 		Maze[next.x][next.y] = Maze[enter.x][enter.y] + 1;
 		PassMaze(Maze, Enter, next, path, shortpath);
 	}
-	//ÏÂ
+	//ä¸‹
 	next = enter;
 	next.x = enter.x + 1;
 	if (IsPass(Maze, enter, next))
@@ -137,16 +137,16 @@ void  PassMaze(int Maze[ROW][COL], position Enter, position enter, stack * path,
 		Maze[next.x][next.y] = Maze[enter.x][enter.y] + 1;
 		PassMaze(Maze, Enter, next, path, shortpath);
 	}
-    //ÉÏ×óÓÒÏÂÎŞÍ¨Â·£¬¸Ã²½×ß´í£¬»ØÍË
+    //ä¸Šå·¦å³ä¸‹æ— é€šè·¯ï¼Œè¯¥æ­¥èµ°é”™ï¼Œå›é€€
 	PopStack(path);
 }
 
 
-//´òÓ¡ÃÔ¹¬×î¶ÌÂ·¾¶
+//æ‰“å°è¿·å®«æœ€çŸ­è·¯å¾„
 void Print(stack *shortpath)
 {
 	int i = 0;
-	printf("×î¶ÌÂ·¾¶£º\n");
+	printf("æœ€çŸ­è·¯å¾„ï¼š\n");
 	for (i = 0; i < shortpath->top; i++)
 	{
 		printf("(%d,%d) ", shortpath->data[i].x, shortpath->data[i].y);
@@ -154,7 +154,7 @@ void Print(stack *shortpath)
 	printf("\n");
 }
 
-//´òÓ¡ÃÔ¹¬
+//æ‰“å°è¿·å®«
 void print(int Maze[ROW][COL])
 {
 	int i = 0;
