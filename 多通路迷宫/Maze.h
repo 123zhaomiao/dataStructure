@@ -20,11 +20,11 @@ typedef struct stack
 	int top;
 }stack;
 
-//ջ��ʼ��
+//Õ»³õÊ¼»¯
 void StackInit(stack *s);
-//���Թ�
+//×ßÃÔ¹¬
 void  PassMaze(int Maze[ROW][COL], position enter, position Enter, stack * path, stack *  shortpath);
-//��ӡ�Թ����·��
+//´òÓ¡ÃÔ¹¬×î¶ÌÂ·¾¶
 void Print(stack * shortpath);
-//��ӡ�Թ�
+//´òÓ¡ÃÔ¹¬
 void print(int Maze[ROW][COL]);
