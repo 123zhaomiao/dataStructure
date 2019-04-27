@@ -11,20 +11,20 @@ void TestMaze()
 	stack path;
 	stack shortpath;
 
-	//¶¨ÒåÃÔ¹¬Èë¿Ú
+	//Â¶Â¨Ã’Ã¥ÃƒÃ”Â¹Â¬ÃˆÃ«Â¿Ãš
 	position enter;
 	position Enter;
 	enter.x = 5;
 	enter.y = 1;
 	Enter = enter;
-	//Õ»³õÊ¼»¯
+	//Ã•Â»Â³ÃµÃŠÂ¼Â»Â¯
 	StackInit(&path);
 	StackInit(&shortpath);
-	//×ßÃÔ¹¬
+	//Ã—ÃŸÃƒÃ”Â¹Â¬
 	PassMaze(Maze, enter, Enter, &path, &shortpath);
-	//´òÓ¡ÃÔ¹¬
+	//Â´Ã²Ã“Â¡ÃƒÃ”Â¹Â¬
 	print(Maze);
-	//´òÓ¡ÃÔ¹¬×î¶ÌÂ·¾¶
+	//Â´Ã²Ã“Â¡ÃƒÃ”Â¹Â¬Ã—Ã®Â¶ÃŒÃ‚Â·Â¾Â¶
 	Print(&shortpath);
 }
 int main()
