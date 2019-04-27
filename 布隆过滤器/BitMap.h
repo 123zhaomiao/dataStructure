@@ -8,19 +8,19 @@
 typedef struct BitMap
 {
 	int *Bit;
-	int capacity;//±ÈÌØÎ»µÄ×Ü¸öÊý
-	int size;//±ÈÌØÎ»Îª1µÄ¸öÊý
+	int capacity;//æ¯”ç‰¹ä½çš„æ€»ä¸ªæ•°
+	int size;//æ¯”ç‰¹ä½ä¸º1çš„ä¸ªæ•°
 }BitMap;
 
-//³õÊ¼»¯±ÈÌØÎ»
+//åˆå§‹åŒ–æ¯”ç‰¹ä½
 void InitBitMap(BitMap *bit,int total);
-//ÖÃ1
+//ç½®1
 void SetBitMap(BitMap *bit, int which);
-//Îª1µÄ¸öÊý
+//ä¸º1çš„ä¸ªæ•°
 int SizeBitMap(BitMap *bit);
-//ÖÃ0
+//ç½®0
 void ResetBitMap(BitMap *bit, int which);
-//ÅÐ¶Ï±ÈÌØÎ»ÊÇ·ñÎª1
+//åˆ¤æ–­æ¯”ç‰¹ä½æ˜¯å¦ä¸º1
 int TestSetMap(BitMap *bit, int which);
 
 
@@ -29,12 +29,12 @@ int TestSetMap(BitMap *bit, int which);
 
 
 /////////////////////////////////////////////////////////////////////////////////
-//³õÊ¼»¯±ÈÌØÎ»
+//åˆå§‹åŒ–æ¯”ç‰¹ä½
 void InitBitMap(BitMap *bit, int total)
 {
-	//totalÎª´´½¨µÄ±ÈÌØÎ»¸öÊý
+	//totalä¸ºåˆ›å»ºçš„æ¯”ç‰¹ä½ä¸ªæ•°
 	assert(bit);
-	//±ÈÌØÎ»µÄÈÝÁ¿
+	//æ¯”ç‰¹ä½çš„å®¹é‡
 	bit->capacity = total;
 	bit->Bit = (int *)malloc(((total / 32) + 1)*sizeof(int));
 	if (bit->Bit == NULL)
@@ -42,61 +42,61 @@ void InitBitMap(BitMap *bit, int total)
 		assert(0);
 		return;
 	}
-	//ÖÃ0
+	//ç½®0
 	memset(bit->Bit, 0, ((total / 32) + 1)*sizeof(int));
 	bit->size = 0;
 }
-//ÖÃ1
+//ç½®1
 void SetBitMap(BitMap *bit, int which)
 {
 	int index = 0;
 	int pos = 0;
 	assert(bit);
-	//È·¶¨ÔÚÄÄ¸ö×Ö½Ú
+	//ç¡®å®šåœ¨å“ªä¸ªå­—èŠ‚
 	index = which >> 5;
-	//È·¶¨Î»ÖÃ
+	//ç¡®å®šä½ç½®
 	pos = which % 32;
-	//ÖÃ1
+	//ç½®1
 	bit->Bit[index] = bit->Bit[index] | (1 << pos);
 	bit->size++;
 }
-//Îª1µÄ¸öÊý
+//ä¸º1çš„ä¸ªæ•°
 int SizeBitMap(BitMap *bit)
 {
 	assert(bit);
 	return bit->size;
 }
 
-//ÅÐ¶Ï±ÈÌØÎ»ÊÇ·ñÎª1
+//åˆ¤æ–­æ¯”ç‰¹ä½æ˜¯å¦ä¸º1
 int TestSetMap(BitMap *bit, int which)
 {
 	assert(bit);
 	int index = 0;
 	int pos = 0;
 	assert(bit);
-	//È·¶¨ÔÚÄÄ¸ö×Ö½Ú
+	//ç¡®å®šåœ¨å“ªä¸ªå­—èŠ‚
 	index = which >> 5;
-	//È·¶¨Î»ÖÃ
+	//ç¡®å®šä½ç½®
 	pos = which % 32;
 
-	//¸Ã±ÈÌØÎ»Îª1·µ»Ø1£¬·ñÔò·µ»Ø0
+	//è¯¥æ¯”ç‰¹ä½ä¸º1è¿”å›ž1ï¼Œå¦åˆ™è¿”å›ž0
 	bit->Bit[index] = bit->Bit[index] & (1 << pos);
 	return bit->Bit[index];
 }
-//ÖÃ0
+//ç½®0
 void ResetBitMap(BitMap *bit, int which)
 {
 	int index = 0;
 	int pos = 0;
 	assert(bit);
-	//È·¶¨ÔÚÄÄ¸ö×Ö½Ú
+	//ç¡®å®šåœ¨å“ªä¸ªå­—èŠ‚
 	index = which >> 5;
-	//È·¶¨Î»ÖÃ
+	//ç¡®å®šä½ç½®
 	pos = which % 32;
-	//Èç¹û±ÈÌØÎ»ÊÇ1£¬¾ÍÖÃ0 size--
+	//å¦‚æžœæ¯”ç‰¹ä½æ˜¯1ï¼Œå°±ç½®0 size--
 	if (TestSetMap(bit, which))
 	{
-		//ÖÃ0
+		//ç½®0
 		bit->Bit[index] = bit->Bit[index] & (~(1 << pos));
 		bit->size--;
 	}	
