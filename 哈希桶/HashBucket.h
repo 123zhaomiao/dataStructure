@@ -15,18 +15,18 @@ typedef struct HashBucket
 	linklist *data[MAX];
 	int size;
 }HashBucket;
-//³õÊ¼»¯¹şÏ£Í°
+//åˆå§‹åŒ–å“ˆå¸Œæ¡¶
 void InitHashBucket(HashBucket *hashbucket);
-//²åÈë
+//æ’å…¥
 void InsertHashBucket(HashBucket *hashbucket,  DataType d);
-//É¾³ı
+//åˆ é™¤
 void DeleteHashBucket(HashBucket *hashbucket, DataType d);
-//²éÕÒ
+//æŸ¥æ‰¾
 int FindHashBucket(HashBucket *hashbucket, DataType d);
 int SizeHashBucket(HashBucket* hashbucket);
 
 ////////////////////////////////////////////////////////////////////////////////
-//³õÊ¼»¯¹şÏ£Í°
+//åˆå§‹åŒ–å“ˆå¸Œæ¡¶
 void InitHashBucket(HashBucket *hashbucket)
 {
 	assert(hashbucket);
@@ -37,7 +37,7 @@ void InitHashBucket(HashBucket *hashbucket)
 	}
 	hashbucket->size = 0;
 }
-//¹şÏ£º¯Êı
+//å“ˆå¸Œå‡½æ•°
 int HashFun( DataType d)
 {
 	return d % MAX;
@@ -54,7 +54,7 @@ linklist *BuyNode(DataType d)
 	node->next = NULL;
 	return node;
 }
-//²åÈë
+//æ’å…¥
 void InsertHashBucket(HashBucket *hashbucket , DataType d)
 {
 	int addr = 0;
@@ -64,7 +64,7 @@ void InsertHashBucket(HashBucket *hashbucket , DataType d)
 	node = BuyNode(d);
 	if (hashbucket->data[addr] == NULL)
 	{
-		//Í·²å·¨
+		//å¤´æ’æ³•
 		hashbucket->data[addr] = node;
 		hashbucket->size++;
 	}
@@ -76,26 +76,26 @@ void InsertHashBucket(HashBucket *hashbucket , DataType d)
 	}
 }
 
-//É¾³ı
+//åˆ é™¤
 void DeleteHashBucket(HashBucket *hashbucket, DataType d)
 {
 	int addr = 0;
-	//±»É¾³ıµÄ½áµãµÄ½áµã
+	//è¢«åˆ é™¤çš„ç»“ç‚¹çš„ç»“ç‚¹
 	linklist *del = NULL;
-	//±»É¾³ı½áµãµÄÉÏÒ»¸ö½áµã
+	//è¢«åˆ é™¤ç»“ç‚¹çš„ä¸Šä¸€ä¸ªç»“ç‚¹
 	linklist *cur = NULL;
 	assert(hashbucket);
 	addr = HashFun(d);
 	del = hashbucket->data[addr];
-	//ÎŞ½áµã
+	//æ— ç»“ç‚¹
 	if (del == NULL)
 	{
-		printf("ÕÒ²»µ½¸ÃÔªËØ!\n");
+		printf("æ‰¾ä¸åˆ°è¯¥å…ƒç´ !\n");
 		return;
 	}
 	else if (del->_d == d)
 	{
-		//É¾³ıÍ·½áµã
+		//åˆ é™¤å¤´ç»“ç‚¹
 		hashbucket->data[addr] = hashbucket->data[addr]->next;
 		hashbucket->size--;
 		free(del);
@@ -117,12 +117,12 @@ void DeleteHashBucket(HashBucket *hashbucket, DataType d)
 				return;
 			}
 		}
-		printf("ÕÒ²»µ½¸ÃÔªËØ!\n");
+		printf("æ‰¾ä¸åˆ°è¯¥å…ƒç´ !\n");
 		return;
 	}
 }
 
-//²éÕÒ
+//æŸ¥æ‰¾
 int FindHashBucket(HashBucket *hashbucket, DataType d)
 {
 	int addr = 0;
@@ -130,7 +130,7 @@ int FindHashBucket(HashBucket *hashbucket, DataType d)
 	assert(hashbucket);
 	addr = HashFun(d);
 	find = hashbucket->data[addr];
-	//ÎŞ½áµã
+	//æ— ç»“ç‚¹
 	if (hashbucket->data[addr] == NULL)
 	{
 		return 0;
