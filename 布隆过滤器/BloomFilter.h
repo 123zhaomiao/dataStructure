@@ -1,7 +1,7 @@
 #include"BitMap.h"
 
 
-//¶¨ÒåÒ»¸öº¯ÊýÖ¸Õë¡¢º¯Êý·µ»ØÀàÐÍÎªint¡¢²ÎÊýÎª×Ö·û´®
+//å®šä¹‰ä¸€ä¸ªå‡½æ•°æŒ‡é’ˆã€å‡½æ•°è¿”å›žç±»åž‹ä¸ºintã€å‚æ•°ä¸ºå­—ç¬¦ä¸²
 typedef int(*STRTOINT)(const char *);
 typedef struct BloomFilter{
 	BitMap _bmp;
@@ -10,15 +10,15 @@ typedef struct BloomFilter{
 }BloomFilter;
 
 
-//³õÊ¼»¯
+//åˆå§‹åŒ–
 void InitBloomFilter(BloomFilter *BloomFilter, int total, STRTOINT *hashfun);
-//²åÈë
+//æ’å…¥
 void InsertBloomFilter(BloomFilter *BloomFilter, char *str);
-//´óÐ¡
+//å¤§å°
 int SizeBloomFilter(BloomFilter *BloomFilter);
-//²éÑ¯
+//æŸ¥è¯¢
 int FindBloomFilter(BloomFilter* BloomFilter, char *str);
-//É¾³ý
+//åˆ é™¤
 void DeleteBloomFilter(BloomFilter *BloomFilter, char *str);
 
 
@@ -29,7 +29,7 @@ void DeleteBloomFilter(BloomFilter *BloomFilter, char *str);
 
 
 ///////////////////////////////////////////////////////////////////////////
-//5ÖÖ×Ö·û´®×ªÕûÐÎµÄ·½·¨
+//5ç§å­—ç¬¦ä¸²è½¬æ•´å½¢çš„æ–¹æ³•
 int HashFun1(const char *str)
 {
 	unsigned int hash = 0;
@@ -115,12 +115,12 @@ int HashFun5(const char *str)
 /////////////////////////////////////////////////////////////////////////////////////
 
 
-//³õÊ¼»¯
+//åˆå§‹åŒ–
 void InitBloomFilter(BloomFilter *BloomFilter, int total, STRTOINT *hashfun)
 {
 	int i = 0;
 	assert(BloomFilter);
-	//³õÊ¼»¯±ÈÌØÎ»
+	//åˆå§‹åŒ–æ¯”ç‰¹ä½
 	InitBitMap(&BloomFilter->_bmp, 5 * total);
 	for (i = 0; i < 5; i++)
 	{
@@ -128,7 +128,7 @@ void InitBloomFilter(BloomFilter *BloomFilter, int total, STRTOINT *hashfun)
 	}
 	BloomFilter->size = 0;
 }
-//²åÈë
+//æ’å…¥
 void InsertBloomFilter(BloomFilter *BloomFilter, char *str)
 {
 	int Hash1 = 0;
@@ -151,13 +151,13 @@ void InsertBloomFilter(BloomFilter *BloomFilter, char *str)
 	SetBitMap(&BloomFilter->_bmp, Hash5);
 	BloomFilter->size++;
 }
-//´óÐ¡
+//å¤§å°
 int SizeBloomFilter(BloomFilter *BloomFilter)
 {
 	assert(BloomFilter);
 	return BloomFilter->size;
 }
-//²éÑ¯
+//æŸ¥è¯¢
 int FindBloomFilter(BloomFilter* BloomFilter, char *str)
 {
 	int Hash1 = 0;
