@@ -8,16 +8,16 @@ void Test()
 {
 	BloomFilter  BloomFilter;
 	STRTOINT hanshfun[5] = { HashFun1, HashFun2,HashFun3,HashFun4,HashFun5 };
-	//³õÊ¼»¯
+	//Â³ÃµÃŠÂ¼Â»Â¯
 	InitBloomFilter(&BloomFilter, 100, hanshfun);
-	//²åÈë
+	//Â²Ã¥ÃˆÃ«
 	InsertBloomFilter(&BloomFilter, "pig");
 	InsertBloomFilter(&BloomFilter, "dog");
 	InsertBloomFilter(&BloomFilter, "cat");
 	InsertBloomFilter(&BloomFilter, "apple");
 	InsertBloomFilter(&BloomFilter, "banana");
 	printf("Size = %d\n", SizeBloomFilter(&BloomFilter));
-	//²éÑ¯
+	//Â²Ã©Ã‘Â¯
 	if (FindBloomFilter(&BloomFilter, "pig"))
 	{
 		printf("\"pig\" is BloomFilter!\n");
