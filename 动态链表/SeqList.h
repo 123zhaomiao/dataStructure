@@ -8,57 +8,57 @@
 #define DataType int
 typedef struct SeqList
 {
-	DataType *data; //´æ·ÅµÄÊı¾İ
-	int sz;			//ÓĞĞ§ÔªËØµÄ¸öÊı
-	int capacity;	//ÈİÁ¿
+	DataType *data; //å­˜æ”¾çš„æ•°æ®
+	int sz;			//æœ‰æ•ˆå…ƒç´ çš„ä¸ªæ•°
+	int capacity;	//å®¹é‡
 }SeqList,*qSeqList;
 
-//³õÊ¼»¯º¯Êı
+//åˆå§‹åŒ–å‡½æ•°
 void InitSeqList(qSeqList seq);
-//´òÓ¡º¯Êı
+//æ‰“å°å‡½æ•°
 void PrintSeqList(qSeqList seq);
 
-//Î²²¿²åÈë
+//å°¾éƒ¨æ’å…¥
 void PushBackSeqList(qSeqList seq, DataType data);
-//Î²²¿É¾³ı
+//å°¾éƒ¨åˆ é™¤
 void PopBackSeqList(qSeqList seq);
 
-//Í·²¿²åÈë
+//å¤´éƒ¨æ’å…¥
 void PushFrontSeqList(qSeqList seq, DataType data);
-//Í·²¿É¾³ı
+//å¤´éƒ¨åˆ é™¤
 void PopFrontSeqList(qSeqList seq);
 
-//²éÕÒÖ¸¶¨ÔªËØ
+//æŸ¥æ‰¾æŒ‡å®šå…ƒç´ 
 int FindSeqList(qSeqList seq, DataType data);
-//Ö¸¶¨Î»ÖÃ²åÈë
+//æŒ‡å®šä½ç½®æ’å…¥
 void Insert(qSeqList seq, int pos, DataType data);
-//Ö¸¶¨Î»ÖÃÉ¾³ı
+//æŒ‡å®šä½ç½®åˆ é™¤
 void Erase(qSeqList seq, int pos);
 
 
-//É¾³ıÖ¸¶¨ÔªËØ
+//åˆ é™¤æŒ‡å®šå…ƒç´ 
 void Remove(qSeqList seq, DataType data);
-//É¾³ıÈ«²¿Ö¸¶¨ÔªËØ
+//åˆ é™¤å…¨éƒ¨æŒ‡å®šå…ƒç´ 
 void RemoveAll(qSeqList seq, DataType data);
 
-//·µ»ØË³Ğò±íµÄ´óĞ¡
+//è¿”å›é¡ºåºè¡¨çš„å¤§å°
 int sizeSeqList(qSeqList seq);
 
-//ÅĞ¶ÏË³Ğò±íÊÇ·ñÎª¿Õ
+//åˆ¤æ–­é¡ºåºè¡¨æ˜¯å¦ä¸ºç©º
 int EmptySeqList(qSeqList seq);
 
-//Ã°ÅİÅÅĞò
+//å†’æ³¡æ’åº
 void Bubblesort(qSeqList seq);
 
-//Ñ¡ÔñÅÅĞò
+//é€‰æ‹©æ’åº
 void SelectSort(qSeqList seq);
 
-//Ñ¡ÔñÅÅĞòµÄÓÅ»¯
+//é€‰æ‹©æ’åºçš„ä¼˜åŒ–
 void SelectSort_OP(qSeqList seq);
 
-//¶ş·Ö²éÕÒ
+//äºŒåˆ†æŸ¥æ‰¾
 int  BinarySearch(qSeqList seq, DataType data);
 
-//¶ş·Ö²éÕÒµİ¹é
+//äºŒåˆ†æŸ¥æ‰¾é€’å½’
 int  BinarySearch_R(qSeqList seq,int left,int right, DataType data);
 #endif  //__SeqList_H__
