@@ -2,14 +2,14 @@
 
 
 
-//1.³õÊ¼»¯Õ»
+//1.åˆå§‹åŒ–æ ˆ
  void InitStack(stack *s)
 {
 	assert(s);
 	s->top = 0;
 	memset(s->data, 0, Max*sizeof(Datatype));
 }
-//1.³õÊ¼»¯¶ÓÁÐ
+//1.åˆå§‹åŒ–é˜Ÿåˆ—
 void InitQueue(queue *q)
 {
 	assert(q);
@@ -19,33 +19,33 @@ void InitQueue(queue *q)
 
 
 
-//ÈëÕ»1
+//å…¥æ ˆ1
 void PushStack(stack *s, Datatype d)
 {
 	assert(s);
 	if (s->top >= Max)
 	{
-		printf("¶ÓÁÐÒÑÂú!\n");
+		printf("é˜Ÿåˆ—å·²æ»¡!\n");
 		return;
 	}
 	s->data[s->top++] = d;
 }
-//Èë¶ÓÁÐ(ÈëÕ»1)
+//å…¥é˜Ÿåˆ—(å…¥æ ˆ1)
 void PushQueue(queue *q, Datatype d)
 {
 	assert(q);
-	//ÈëÕ»1
+	//å…¥æ ˆ1
 	PushStack(&q->s1, d);
 }
 
 
-//Õ»ÔªËØ¸öÊý
+//æ ˆå…ƒç´ ä¸ªæ•°
 int SizeStack(stack *s)
 {
 	assert(s);
 	return s->top;
 }
-//¶ÓÁÐÔªËØ¸öÊý
+//é˜Ÿåˆ—å…ƒç´ ä¸ªæ•°
 int SizeQueue(queue *q)
 {
 	assert(q);
@@ -53,13 +53,13 @@ int SizeQueue(queue *q)
 }
 
 
-//Õ»¿Õ
+//æ ˆç©º
 int EmptyStack(stack *s)
 {
 	assert(s);
 	return 0 == s->top;
 }
-//¶ÓÁÐ¿Õ
+//é˜Ÿåˆ—ç©º
 int EmptyQueue(queue *q)
 {
 	assert(q);
@@ -67,7 +67,7 @@ int EmptyQueue(queue *q)
 }
 
 
-//³öÕ»
+//å‡ºæ ˆ
  void PopStack(stack *s)
 {
 	assert(s);
@@ -75,22 +75,22 @@ int EmptyQueue(queue *q)
 		return;
 	s->top--;
 }
-//·µ»ØÕ»¶¥ÔªËØ
+//è¿”å›žæ ˆé¡¶å…ƒç´ 
 Datatype TopStack(stack *s)
 {
 	assert(s);
 	return s->data[s->top - 1];
 }
-//³ö¶ÓÁÐ
+//å‡ºé˜Ÿåˆ—
 void PopQueue(queue *q)
 {
 	assert(q);
 	if (EmptyQueue(q))
 	{
-		printf("¶ÓÁÐÎª¿Õ!\n");
+		printf("é˜Ÿåˆ—ä¸ºç©º!\n");
 		return;
 	}
-	//Èç¹ûÕ»2Îª¿Õ£¬½«Õ»1ÖÐµÄÔªËØÒÆÈëÕ»2
+	//å¦‚æžœæ ˆ2ä¸ºç©ºï¼Œå°†æ ˆ1ä¸­çš„å…ƒç´ ç§»å…¥æ ˆ2
 	if (EmptyStack(&q->s2))
 	{
 		while (!EmptyStack(&q->s1))
@@ -99,21 +99,21 @@ void PopQueue(queue *q)
 			PopStack(&q->s1);
 		}
 	}
-	//Õ»2µÄÕ»¶¥
+	//æ ˆ2çš„æ ˆé¡¶
 	PopStack(&q->s2);
 }
 
 
-//¶ÓÁÐÎ² Õ»1µÄÕ»¶¥
+//é˜Ÿåˆ—å°¾ æ ˆ1çš„æ ˆé¡¶
 Datatype QueueBack(queue *q)
 {
 		assert(q);
 		if (EmptyQueue(q))
 		{
-			printf("¶ÓÁÐÎª¿Õ!\n");
+			printf("é˜Ÿåˆ—ä¸ºç©º!\n");
 			return -1;
 		}
-		//Èç¹ûÕ»1Îª¿Õ£¬½«Õ»2ÖÐµÄÔªËØÒÆÈëÕ»1
+		//å¦‚æžœæ ˆ1ä¸ºç©ºï¼Œå°†æ ˆ2ä¸­çš„å…ƒç´ ç§»å…¥æ ˆ1
 		if (EmptyStack(&q->s1))
 		{
 			while (!EmptyStack(&q->s2))
@@ -122,21 +122,21 @@ Datatype QueueBack(queue *q)
 				PopStack(&q->s2);
 			}
 		}
-		//Õ»1µÄÕ»¶¥
+		//æ ˆ1çš„æ ˆé¡¶
 		return TopStack(&q->s1);
 }
 
 
-//¶ÓÁÐÍ·  Õ»2µÄÕ»¶¥
+//é˜Ÿåˆ—å¤´  æ ˆ2çš„æ ˆé¡¶
 Datatype QueueFront(queue *q)
 {
 	assert(q);
 	if (EmptyQueue(q))
 	{
-		printf("¶ÓÁÐÎª¿Õ!\n");
+		printf("é˜Ÿåˆ—ä¸ºç©º!\n");
 		return -1;
 	}
-	//Èç¹ûÕ»1Îª¿Õ£¬½«Õ»2ÖÐµÄÔªËØÒÆÈëÕ»1
+	//å¦‚æžœæ ˆ1ä¸ºç©ºï¼Œå°†æ ˆ2ä¸­çš„å…ƒç´ ç§»å…¥æ ˆ1
 	if (EmptyStack(&q->s2))
 	{
 		while (!EmptyStack(&q->s1))
@@ -145,6 +145,6 @@ Datatype QueueFront(queue *q)
 			PopStack(&q->s1);
 		}
 	}
-	//Õ»2µÄÕ»¶¥
+	//æ ˆ2çš„æ ˆé¡¶
 	return TopStack(&q->s2);
 }
