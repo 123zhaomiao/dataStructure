@@ -14,15 +14,15 @@ typedef struct Queue
 	stack s1;
 	stack s2;
 }queue;
-//ЁУй╪╩╞╤тап
+//Е┬²Е╖▀Е▄√Е╞╧Е┬≈
 void InitQueue(queue *q);
-//хК╤тап
+//Е┘╔Е╞╧Е┬≈
 void PushQueue(queue *q, Datatype d);
-//╤тапт╙кь╦ЖйЩ
+//Е╞╧Е┬≈Е┘┐Г╢═Д╦╙Ф∙╟
 int SizeQueue(queue *q);
-//╤тапн╡
+//Е╞╧Е┬≈Е╟╬
 int QueueBack(queue *q);
-//╤тапн╡
+//Е╞╧Е┬≈Е╟╬
 int QueueFront(queue *q);
-//ЁЖ╤тап
+//Е┤╨Е╞╧Е┬≈
 void PopQueue(queue *q);
