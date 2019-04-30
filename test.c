@@ -1,30 +1,52 @@
-#include"TwoStack_Queeue.h"
+#include"share.h"
 
-void Test2StackToQueue()
+void TestSharedStack()
 {
-	queue q;
-	InitQueue(&q);
 
-	PushQueue(&q, 1);
-	PushQueue(&q, 2);
-	PushQueue(&q, 3);
-	PushQueue(&q, 4);
-	PushQueue(&q, 5);
-	printf("%d\n", SizeQueue(&q));
-	printf("∂”Œ≤ = %d\n", QueueBack(&q));
-	printf("∂”Õ∑ = %d\n", QueueFront(&q));
+	sharedstack s;
+	//π≤œÌ’ª≥ı ºªØ
+	InitShared(&s);
 
-	PopQueue(&q);
-	PushQueue(&q, 5);
-	PushQueue(&q, 6);
-	printf("%d\n", SizeQueue(&q));
-	printf("∂”Œ≤ = %d\n", QueueBack(&q));
-	printf("∂”Õ∑ = %d\n", QueueFront(&q));
+	//’ª1»Î’ª
+	PushSharedStack(&s, 1, 1);
+	PushSharedStack(&s, 2, 1);
+	PushSharedStack(&s, 3, 1);
+	PushSharedStack(&s, 4, 1);
 
+	//’ª2»Î’ª
+	PushSharedStack(&s, 5, 2);
+	PushSharedStack(&s, 6, 2);
+	PushSharedStack(&s, 7, 2);
+	PushSharedStack(&s, 8, 2);
+
+	//’ª1’ª∂•
+	printf("’ª1’ª∂•=%d\n", SharedStackTop(&s, 1));
+	//’ª2’ª∂•
+	printf("’ª2’ª∂•=%d\n", SharedStackTop(&s, 2));
+	//’ª1≥§∂Ã
+	printf("’ª1≥§=%d\n", SharedStackSize(&s, 1));
+	//’ª2≥§∂Ã
+	printf("’ª2≥§=%d\n", SharedStackSize(&s, 2));
+
+
+	//’ª1≥ˆ’ª
+	PopSharedStack(&s, 1);
+	PopSharedStack(&s, 1);
+	//’ª2≥ˆ’ª
+	PopSharedStack(&s, 2);
+
+	//’ª1’ª∂•
+	printf("’ª1’ª∂•=%d\n", SharedStackTop(&s, 1));
+	//’ª2’ª∂•
+	printf("’ª2’ª∂•=%d\n", SharedStackTop(&s, 2));
+	//’ª1≥§∂Ã
+	printf("’ª1≥§=%d\n", SharedStackSize(&s, 1));
+	//’ª2≥§∂Ã
+	printf("’ª2≥§=%d\n", SharedStackSize(&s, 2));
 }
 int main()
 {
-	Test2StackToQueue();
+	TestSharedStack();
 	system("pause");
 	return 0;
 }
