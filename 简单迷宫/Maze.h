@@ -6,14 +6,14 @@
 #define ROW  6
 #define COL  6
 
-//ºá×İ×ø±êµÄÖµ
+//æ¨ªçºµåæ ‡çš„å€¼
 typedef struct position
 {
 	int x;
 	int y;
 }position;
 
-//¾²Ì¬Õ»£¬ÓÃÓÚ´æ´¢Â·¾¶
+//é™æ€æ ˆï¼Œç”¨äºå­˜å‚¨è·¯å¾„
 typedef struct  stack
 {
 	position data[20];
@@ -21,14 +21,14 @@ typedef struct  stack
 }stack;
 
 
-//³õÊ¼»¯Õ»
+//åˆå§‹åŒ–æ ˆ
 void InitStack(stack *s);
 
-//×ßÃÔ¹¬
+//èµ°è¿·å®«
 void PassMaze(int Maze[ROW][COL],position enter,stack* s);
 
-//´òÓ¡ÃÔ¹¬
+//æ‰“å°è¿·å®«
 void print(int Maze[ROW][COL]);
 
-//´òÓ¡ÃÔ¹¬Â·¾¶
+//æ‰“å°è¿·å®«è·¯å¾„
 void printStack(stack *s);
