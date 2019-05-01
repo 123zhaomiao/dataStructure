@@ -1,35 +1,35 @@
 #include"Maze.h"
 
-//³õÊ¼»¯Õ»
+//åˆå§‹åŒ–æ ˆ
 void InitStack(stack *s)
 {
 	assert(s);
 	s->top = 0;
 	memset(s->data, 0, 20 * sizeof(position));
 }
-//ÈëÕ»
+//å…¥æ ˆ
 void  PushStack(stack *s, position cur)
 {
 	assert(s);
 	s->data[s->top] = cur;
 	s->top++;
 }
-//Õ»¶¥ÔªËØ
+//æ ˆé¡¶å…ƒç´ 
 position TopStack(stack *s)
 {
 	assert(s);
 	return s->data[s->top - 1];
 }
-//Õ»¶¥ÔªËØ³öÕ»
+//æ ˆé¡¶å…ƒç´ å‡ºæ ˆ
 void PopStack(stack *s)
 {
 	assert(s);
 	s->top--;
 }
-//ÅÐ¶ÏÊÇÈë¿ÚÂð£¿
+//åˆ¤æ–­æ˜¯å…¥å£å—ï¼Ÿ
 int IsEnter(int Maze[ROW][COL], position enter)
 {
-	//±ß½ç
+	//è¾¹ç•Œ
 	if (enter.x == 0 || enter.x == ROW - 1 || enter.y == 0 || enter.y == COL - 1)
 	{
 		return 1;
@@ -37,13 +37,13 @@ int IsEnter(int Maze[ROW][COL], position enter)
 	else
 		return 0;
 }
-//ÊÇÍ¨Â·Âð£¿
+//æ˜¯é€šè·¯å—ï¼Ÿ
 int IsPass(int Maze[ROW][COL], position next)
 {
-	//1.×ø±êÓÐÐ§
+	//1.åæ ‡æœ‰æ•ˆ
 	if (next.x >= 0 && next.x < ROW && next.y >= 0 && next.y < COL )
 	{
-		//2.ÊÇÍ¨Â·
+		//2.æ˜¯é€šè·¯
 		if (1 == Maze[next.x][next.y])
 		{
 			return 1;
@@ -51,7 +51,7 @@ int IsPass(int Maze[ROW][COL], position next)
 	}
 	return 0;
 }
-//ÊÇ³ö¿ÚÂð£¿
+//æ˜¯å‡ºå£å—ï¼Ÿ
 int IsExit(int Maze[ROW][COL], position enter, position cur)
 {
 	if ((cur.x == 0 || cur.x == ROW - 1 || cur.y == 0 || cur.y == COL - 1) && (cur.x != enter.x || cur.y != enter.y))
@@ -61,7 +61,7 @@ int IsExit(int Maze[ROW][COL], position enter, position cur)
 	return 0;
 }
 
-//×ßÃÔ¹¬
+//èµ°è¿·å®«
 void PassMaze(int Maze[ROW][COL], position enter, stack* s)
 {
 	position cur;
@@ -69,16 +69,16 @@ void PassMaze(int Maze[ROW][COL], position enter, stack* s)
 	if (IsEnter(Maze, enter))
 	{
 		cur = enter;
-		//Èë¿ÚÈëÕ»
+		//å…¥å£å…¥æ ˆ
 		PushStack(s, cur);
-		//Îª·ÀÖ¹ÖØ¸´×ß£¬½«×ß¹ýµÄÂ·±ê¼Ç
+		//ä¸ºé˜²æ­¢é‡å¤èµ°ï¼Œå°†èµ°è¿‡çš„è·¯æ ‡è®°
 		Maze[cur.x][cur.y] = 2;
-		//Èç¹û²»ÊÇ³ö¿Ú£¬¼ÌÐø¡£¡£¡£¡£
+		//å¦‚æžœä¸æ˜¯å‡ºå£ï¼Œç»§ç»­ã€‚ã€‚ã€‚ã€‚
 		while (!IsExit(Maze, enter,TopStack(s)))
 		{
-			//curÎªµ±Ç°µÄÕ»¶¥ÔªËØ
+			//curä¸ºå½“å‰çš„æ ˆé¡¶å…ƒç´ 
 			cur = TopStack(s);
-			//ÉÏÍ¨£¬´ÓÉÏ×ß£¬±ê¼Ç
+			//ä¸Šé€šï¼Œä»Žä¸Šèµ°ï¼Œæ ‡è®°
 			next = cur;
 			next.x = cur.x - 1;
 			if (IsPass(Maze, next))
@@ -87,7 +87,7 @@ void PassMaze(int Maze[ROW][COL], position enter, stack* s)
 				Maze[next.x][next.y] = 2;
 				continue;
 			}
-			//×óÍ¨£¬´Ó×ó×ß£¬±ê¼Ç
+			//å·¦é€šï¼Œä»Žå·¦èµ°ï¼Œæ ‡è®°
 			next = cur;
 			next.y = cur.y - 1;
 			if (IsPass(Maze, cur))
@@ -96,7 +96,7 @@ void PassMaze(int Maze[ROW][COL], position enter, stack* s)
 				Maze[next.x][next.y] = 2;
 				continue;
 			}
-			//ÓÒÍ¨£¬´ÓÓÒ×ß£¬±ê¼Ç
+			//å³é€šï¼Œä»Žå³èµ°ï¼Œæ ‡è®°
 			next = cur;
 			next.y = cur.y + 1;
 			if (IsPass(Maze, next))
@@ -105,7 +105,7 @@ void PassMaze(int Maze[ROW][COL], position enter, stack* s)
 				Maze[cur.x][next.y] = 2;
 				continue;
 			}
-			//ÏÂÍ¨£¬´ÓÏÂ×ß£¬±ê¼Ç
+			//ä¸‹é€šï¼Œä»Žä¸‹èµ°ï¼Œæ ‡è®°
 			next = cur;
 			next.x = cur.x + 1;
 			if (IsPass(Maze, next))
@@ -114,14 +114,14 @@ void PassMaze(int Maze[ROW][COL], position enter, stack* s)
 				Maze[next.x][next.y] = 2;
 				continue;
 			}
-			//ÈôÉÏ×óÓÒÏÂ¾ù²»ÊÇÍ¨Â·£¬Ö¤Ã÷¸Ã²½×ß´í£¬»ØÍË£¬ÇÒ±ê¼Ç
-			//Õ»¶¥ÔªËØ³öÕ»
+			//è‹¥ä¸Šå·¦å³ä¸‹å‡ä¸æ˜¯é€šè·¯ï¼Œè¯æ˜Žè¯¥æ­¥èµ°é”™ï¼Œå›žé€€ï¼Œä¸”æ ‡è®°
+			//æ ˆé¡¶å…ƒç´ å‡ºæ ˆ
 			PopStack(s);
 			Maze[cur.x][cur.y] = 3;
 		}
 		}
 }
-//´òÓ¡ÃÔ¹¬
+//æ‰“å°è¿·å®«
 void print(int Maze[ROW][COL])
 {
 	int i = 0;
@@ -137,11 +137,11 @@ void print(int Maze[ROW][COL])
 	printf("\n");
 }
 
-//´òÓ¡ÃÔ¹¬Â·¾¶
+//æ‰“å°è¿·å®«è·¯å¾„
 void printStack(stack *s)
 {
 	int i = 0;
-	printf("ÃÔ¹¬Â·¾¶Îª£º\n");
+	printf("è¿·å®«è·¯å¾„ä¸ºï¼š\n");
 	for (i = 0; i < s->top; i++)
 	{
 		printf("(%d,%d)  ", s->data[i].x,s->data[i].y);
