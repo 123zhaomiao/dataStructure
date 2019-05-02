@@ -1,7 +1,7 @@
 #include"BSTree.h"
 
 
-//³õÊ¼»¯
+//åˆå§‹åŒ–
 void InitBSTree(BSTree **BSTree)
 {
 	assert(BSTree);
@@ -14,7 +14,7 @@ BSTree* BuyNode(BSDataType d)
 	BSTree *newnode = (BSTree *)malloc(sizeof(BSTree));
 	if (NULL == newnode)
 	{
-		//Èô¿ª±Ù¿Õ¼äÊ§°Ü£¬Ôò´òÓ¡³ö´íÎó£¬²»½øĞĞºóÃæµÄ´úÂë
+		//è‹¥å¼€è¾Ÿç©ºé—´å¤±è´¥ï¼Œåˆ™æ‰“å°å‡ºé”™è¯¯ï¼Œä¸è¿›è¡Œåé¢çš„ä»£ç 
 		assert(0);
 		return NULL;
 	}
@@ -24,7 +24,7 @@ BSTree* BuyNode(BSDataType d)
 
 	return newnode;
 }
-////²åÈë
+////æ’å…¥
 //int InsertBSTree(BSTree **BStree, BSDataType data)
 //{
 //	BSTree *cur  = NULL;
@@ -32,16 +32,16 @@ BSTree* BuyNode(BSDataType d)
 //
 //	assert(BStree);
 //	cur = *BStree;
-//	//1.Èô¶ş²æÊ÷Îª¿Õ
+//	//1.è‹¥äºŒå‰æ ‘ä¸ºç©º
 //	if (NULL == *BStree)    
 //	{
 //		*BStree = BuyNode(data);
 //	}
-//	//2.Èô¶ş²æÊ÷²»Îª¿Õ  
+//	//2.è‹¥äºŒå‰æ ‘ä¸ä¸ºç©º  
 //	else
 //	{
 //		
-//		//¢Ù.Ñ°ÕÒ²åÈëµÄÎ»ÖÃ
+//		//â‘ .å¯»æ‰¾æ’å…¥çš„ä½ç½®
 //		while (cur != NULL)
 //		{
 //			parent = cur;
@@ -58,9 +58,9 @@ BSTree* BuyNode(BSDataType d)
 //				return 0;
 //			}
 //		}
-//		//¢Ú.½¨Á¢ĞÂ½áµã
+//		//â‘¡.å»ºç«‹æ–°ç»“ç‚¹
 //		cur = BuyNode(data);
-//		//¢Û.dataÈô±ÈË«Ç×´ó£¬Ôò²åÓÒ±ß£¬Èô±ÈË«Ç×Ğ¡£¬Ôò²å×ó±ß
+//		//â‘¢.dataè‹¥æ¯”åŒäº²å¤§ï¼Œåˆ™æ’å³è¾¹ï¼Œè‹¥æ¯”åŒäº²å°ï¼Œåˆ™æ’å·¦è¾¹
 //		if (data < parent->_data)
 //		{
 //			parent->_pleft = cur;
@@ -72,7 +72,7 @@ BSTree* BuyNode(BSDataType d)
 //	}
 //	return 1;
 //}
-//µİ¹é²åÈë
+//é€’å½’æ’å…¥
 int InsertBSTree(BSTree **BStree, BSDataType data)
 {
 	BSTree *cur = NULL;
@@ -100,7 +100,7 @@ int InsertBSTree(BSTree **BStree, BSDataType data)
 	}
 	return 1;
 }
-//ÖĞĞò±éÀú   ×ó-->¸ù-->ÓÒ
+//ä¸­åºéå†   å·¦-->æ ¹-->å³
 void InOrder(BSTree *BStree)
 {
 	if (BStree == NULL)
@@ -114,19 +114,19 @@ void InOrder(BSTree *BStree)
 
 
 
-////É¾³ı
+////åˆ é™¤
 //int  DeleteBSTree(BSTree **BStree, BSDataType data)
 //{
 //	BSTree *cur = NULL;
-//	BSTree *del = NULL;      //ÒªÉ¾³ıµÄ½áµã
-//	BSTree *parent = NULL;   //ÒªÉ¾³ı½áµãµÄË«Ç×½áµã
+//	BSTree *del = NULL;      //è¦åˆ é™¤çš„ç»“ç‚¹
+//	BSTree *parent = NULL;   //è¦åˆ é™¤ç»“ç‚¹çš„åŒäº²ç»“ç‚¹
 //	assert(BStree);
 //	cur = *BStree;
 //	if (*BStree == NULL)
 //	{
 //		return 0;
 //	}
-//	//Ñ°ÕÒÒªÉ¾³ıµÄµã
+//	//å¯»æ‰¾è¦åˆ é™¤çš„ç‚¹
 //	while (cur != NULL)
 //	{
 //		if (cur->_data == data)
@@ -146,20 +146,20 @@ void InOrder(BSTree *BStree)
 //	}
 //	if (cur == NULL)
 //	{
-//		//Ö¤Ã÷ÒªÉ¾³ıµÄÔªËØ²»ÔÚ¶ş²æËÑË÷Ê÷ÄÚ
+//		//è¯æ˜è¦åˆ é™¤çš„å…ƒç´ ä¸åœ¨äºŒå‰æœç´¢æ ‘å†…
 //		return 0;
 //	}
-//	//Ö»ÓĞÓÒº¢×Ó»òÕßÒ¶×Ó
+//	//åªæœ‰å³å­©å­æˆ–è€…å¶å­
 //	if (cur->_pleft == NULL)
 //	{
-//		//Èç¹ûÊÇ¸ù½Úµã£¬ÈÃ¸ù½ÚµãÖ¸ÏòËüµÄÓÒ×ÓÊ÷
+//		//å¦‚æœæ˜¯æ ¹èŠ‚ç‚¹ï¼Œè®©æ ¹èŠ‚ç‚¹æŒ‡å‘å®ƒçš„å³å­æ ‘
 //		if (cur == *BStree)
 //		{
 //			*BStree = (*BStree)->_pright;
 //		}
 //		else
 //		{
-//			//ÅĞ¶ÏcurÊÇË«Ç×µÄ×óº¢×Ó»¹ÊÇÓÒº¢×Ó
+//			//åˆ¤æ–­curæ˜¯åŒäº²çš„å·¦å­©å­è¿˜æ˜¯å³å­©å­
 //			if (parent->_pleft == cur)
 //			{
 //				parent->_pleft = cur->_pright;
@@ -170,17 +170,17 @@ void InOrder(BSTree *BStree)
 //			}
 //		}
 //	}
-//	//Ö»ÓĞ×óº¢×Ó
+//	//åªæœ‰å·¦å­©å­
 //	else if (cur->_pright == NULL)
 //	{
-//		//Èç¹ûÊÇ¸ù½Úµã£¬ÈÃ¸ù½ÚµãÖ¸ÏòËüµÄ×ó×ÓÊ÷
+//		//å¦‚æœæ˜¯æ ¹èŠ‚ç‚¹ï¼Œè®©æ ¹èŠ‚ç‚¹æŒ‡å‘å®ƒçš„å·¦å­æ ‘
 //		if (cur == *BStree)
 //		{
 //			*BStree = (*BStree)->_pleft;
 //		}
 //		else
 //		{
-//			//ÅĞ¶ÏcurÊÇË«Ç×µÄ×óº¢×Ó»¹ÊÇÓÒº¢×Ó
+//			//åˆ¤æ–­curæ˜¯åŒäº²çš„å·¦å­©å­è¿˜æ˜¯å³å­©å­
 //			if (parent->_pleft == cur)
 //			{
 //				parent->_pleft = cur->_pleft;
@@ -192,20 +192,20 @@ void InOrder(BSTree *BStree)
 //
 //		}
 //	}
-//	//×óÓÒº¢×Ó¾ù´æÔÚ
+//	//å·¦å³å­©å­å‡å­˜åœ¨
 //	else
 //	{
 //		del = cur->_pright;
 //		parent = cur;
-//		//ÕÒµ½ÓÒ×ÓÊ÷ÀïÃæ×îĞ¡µÄÒ»¸ö
+//		//æ‰¾åˆ°å³å­æ ‘é‡Œé¢æœ€å°çš„ä¸€ä¸ª
 //		while (del->_pleft)
 //		{
 //			parent = del;
 //			del = del->_pleft;
 //		}
-//		//½«ÕÒµ½µÄ½áµãµÄÖµ¸³¸øÒªÉ¾³ıµÄ½áµã
+//		//å°†æ‰¾åˆ°çš„ç»“ç‚¹çš„å€¼èµ‹ç»™è¦åˆ é™¤çš„ç»“ç‚¹
 //		cur->_data = del->_data;
-//		//É¾³ıreplace 
+//		//åˆ é™¤replace 
 //		if (parent->_pleft == del)
 //		{
 //			parent->_pleft = NULL;
@@ -223,7 +223,7 @@ void InOrder(BSTree *BStree)
 //} 
 
 
-//µİ¹éÉ¾³ı
+//é€’å½’åˆ é™¤
 int DeleteBSTree(BSTree **BStree, BSDataType data)
 {
 	BSTree *del = NULL;
@@ -270,11 +270,11 @@ int DeleteBSTree(BSTree **BStree, BSDataType data)
 	}
 	return 1;
 }
-//²éÕÒ
+//æŸ¥æ‰¾
 int  FindBSTree(BSTree *BStree, BSDataType data)
 {
 	BSTree *cur = BStree;
-	//¸ù½ÚµãÎª¿Õ£¬¼´¶ş²æÊ÷Îª¿Õ£¬·µ»Ø0
+	//æ ¹èŠ‚ç‚¹ä¸ºç©ºï¼Œå³äºŒå‰æ ‘ä¸ºç©ºï¼Œè¿”å›0
 	if (BStree == NULL)
 	{
 		return 0;
@@ -292,11 +292,11 @@ int  FindBSTree(BSTree *BStree, BSDataType data)
 		else
 			cur = cur->_pright;
 	}
-	//cur==NULL¼´Ã»ÓĞÕÒµ½ÔªËØºÍdataÏàµÈ£¬·µ»Ø0
+	//cur==NULLå³æ²¡æœ‰æ‰¾åˆ°å…ƒç´ å’Œdataç›¸ç­‰ï¼Œè¿”å›0
 	return 0;
 }
 
-////µİ¹é²éÕÒ
+////é€’å½’æŸ¥æ‰¾
 //int  FindBSTree(BSTree *BStree, BSDataType data)
 //{
 //	BSTree *cur = BStree;
@@ -318,7 +318,7 @@ int  FindBSTree(BSTree *BStree, BSDataType data)
 //	}
 //}
 
-//Ïú»Ù¶ş²æÊ÷
+//é”€æ¯äºŒå‰æ ‘
 void DestroyBSTree(BSTree **BStree)
 {
 	assert(BStree);
