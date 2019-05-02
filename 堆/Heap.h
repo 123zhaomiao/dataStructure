@@ -7,21 +7,21 @@ typedef int HDataType;
 typedef struct Heap
 {
 	HDataType *data;
-	int size; //ÓĞĞ§ÔªËØµÄ¸öÊı
-	int capacity; //ÈİÁ¿
+	int size; //æœ‰æ•ˆå…ƒç´ çš„ä¸ªæ•°
+	int capacity; //å®¹é‡
 }Heap;
 
-//³õÊ¼»¯¶Ñ
+//åˆå§‹åŒ–å †
 void InitHeap(Heap *hp, int *array, int size);
-//´´½¨¶Ñ
+//åˆ›å»ºå †
 void CreateHeap(Heap *hp, int *array, int size);
-//²åÈë¶Ñ
+//æ’å…¥å †
 void InsertHeap(Heap *hp, HDataType data);
-//É¾³ı
+//åˆ é™¤
 void DeleteHeap(Heap *hp);
-//´òÓ¡¶Ñ
+//æ‰“å°å †
 void PrintHeap(Heap *hp);
-//¶ÑÅÅĞò
+//å †æ’åº
 void SortHeap(Heap *hp);
-//Ïú»Ù¶Ñ
+//é”€æ¯å †
 void DestroyHeap(Heap *hp);
