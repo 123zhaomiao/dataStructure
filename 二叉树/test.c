@@ -5,44 +5,44 @@ void TestBSTree()
 	BSTree *BStree;
 	int a[] = { 5, 3, 4, 1, 7, 8, 2, 6, 0, 9 };
 	int i = 0;
-	//³õÊ¼»¯¶ş²æËÑË÷Ê÷
+	//åˆå§‹åŒ–äºŒå‰æœç´¢æ ‘
 	InitBSTree(&BStree);
 	for (i = 0; i < sizeof(a) / sizeof(a[0]); i++)
 	{
-		//²åÈë
+		//æ’å…¥
 		InsertBSTree(&BStree, a[i]);
 	}
-	//²åÈë
+	//æ’å…¥
 	InsertBSTree(&BStree, 10);
-	//ÖĞĞò±éÀú
+	//ä¸­åºéå†
 	InOrder(BStree);
 	printf("\n");
-	//²éÕÒ
+	//æŸ¥æ‰¾
 	if (FindBSTree(BStree, 1))
 	{
-		printf("ÕÒµ½ÁË£¡\n");
+		printf("æ‰¾åˆ°äº†ï¼\n");
 	}
 	else
 	{
-		printf("Ã»ÕÒµ½!\n");
+		printf("æ²¡æ‰¾åˆ°!\n");
 	}
-	//²éÕÒ
+	//æŸ¥æ‰¾
 	if (FindBSTree(BStree, -1))
 	{
-		printf("ÕÒµ½ÁË£¡\n");
+		printf("æ‰¾åˆ°äº†ï¼\n");
 	}
 	else
 	{
-		printf("Ã»ÕÒµ½!\n");
+		printf("æ²¡æ‰¾åˆ°!\n");
 	}
-	//É¾³ı
+	//åˆ é™¤
 	DeleteBSTree(&BStree, 5);
-	//É¾³ı
+	//åˆ é™¤
 	DeleteBSTree(&BStree, 3);
-	//ÖĞĞò±éÀú
+	//ä¸­åºéå†
 	InOrder(BStree);
 	printf("\n");
-	//´İ»Ù
+	//æ‘§æ¯
 	DestroyBSTree(&BStree);
 }
 
