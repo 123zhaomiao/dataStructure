@@ -4,23 +4,23 @@ void Test()
 {
 	int array[] = { 53, 17, 78, 9, 45, 65, 87, 23, 31 };
 	Heap hp;
-	//³õÊ¼»¯¶Ñ
+	//Â³ÃµÃŠÂ¼Â»Â¯Â¶Ã‘
 	InitHeap(&hp, array, sizeof(array) / sizeof(array[0]));
-	//´´½¨¶Ñ
+	//Â´Â´Â½Â¨Â¶Ã‘
 	CreateHeap(&hp, array, sizeof(array) / sizeof(array[0]));
-	//²åÈë¶Ñ
+	//Â²Ã¥ÃˆÃ«Â¶Ã‘
 	InsertHeap(&hp, 4);
-	//´òÓ¡¶Ñ
+	//Â´Ã²Ã“Â¡Â¶Ã‘
 	PrintHeap(&hp);
-	//É¾³ı¶Ñ¶¥
+	//Ã‰Â¾Â³Ã½Â¶Ã‘Â¶Â¥
 	DeleteHeap(&hp);
-	//´òÓ¡¶Ñ
+	//Â´Ã²Ã“Â¡Â¶Ã‘
 	PrintHeap(&hp);
-	//¶ÑÅÅĞò
+	//Â¶Ã‘Ã…Ã…ÃÃ²
 	SortHeap(&hp);
-	//´òÓ¡¶Ñ
+	//Â´Ã²Ã“Â¡Â¶Ã‘
 	PrintHeap(&hp);
-	//Ïú»Ù¶Ñ
+	//ÃÃºÂ»Ã™Â¶Ã‘
 	DestroyHeap(&hp);
 }
 int main()
