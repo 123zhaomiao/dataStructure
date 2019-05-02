@@ -1,7 +1,7 @@
 #include"Heap.h"
 
 
-//³õÊ¼»¯¶Ñ
+//åˆå§‹åŒ–å †
 void InitHeap(Heap *hp, int *array, int size)
 {
 	assert(hp);
@@ -13,7 +13,7 @@ void InitHeap(Heap *hp, int *array, int size)
 		assert(0);
 		return;
 	}
-	//½«arrayÖĞsize*sizeof(HDataType)¸ö×Ö½Ú¿½±´µ½hp->data
+	//å°†arrayä¸­size*sizeof(HDataType)ä¸ªå­—èŠ‚æ‹·è´åˆ°hp->data
 	memcpy(hp->data, array, size*sizeof(HDataType));
 }
 
@@ -23,22 +23,22 @@ void Swap(HDataType *x, HDataType *y)
 	*x = *y;
 	*y = tmp;
 }
-//ÏòÏÂµ÷Õû
+//å‘ä¸‹è°ƒæ•´
 void AdjustDown(Heap *hp, int parent)
 {
-	//½áµãiµÄ×óº¢×ÓÎª£º2*i+1
+	//ç»“ç‚¹içš„å·¦å­©å­ä¸ºï¼š2*i+1
 	int child = (parent << 1) + 1;
 	while (child < hp->size)
 	{
-		//ÏÈ±£Ö¤ÓĞÓÒº¢×Ó,È»ºó»ñÈ¡×óºóº¢×ÓµÄ×îĞ¡Öµ
+		//å…ˆä¿è¯æœ‰å³å­©å­,ç„¶åè·å–å·¦åå­©å­çš„æœ€å°å€¼
 		if (child+1 < hp->size && hp->data[child] > hp->data[child + 1])
 		{
 			child = child + 1;
 		}
-		//×óºóº¢×ÓµÄ×îĞ¡ÖµºÍË«Ç×±È½Ï£¬ÈôË«Ç×´ó£¬ÔòÓë×óÓÒº¢×ÓµÄ×îĞ¡Öµ½»»»
+		//å·¦åå­©å­çš„æœ€å°å€¼å’ŒåŒäº²æ¯”è¾ƒï¼Œè‹¥åŒäº²å¤§ï¼Œåˆ™ä¸å·¦å³å­©å­çš„æœ€å°å€¼äº¤æ¢
 		if (hp->data[parent] > hp->data[child])
 		{
-			//½»»»
+			//äº¤æ¢
 			Swap(&hp->data[child], &hp->data[parent]);
 			parent = child;
 			child = (parent << 1) + 1;
@@ -49,19 +49,19 @@ void AdjustDown(Heap *hp, int parent)
 		}
 	}
 }
-//´´½¨¶Ñ
+//åˆ›å»ºå †
 void CreateHeap(Heap *hp, int *array, int size)
 {
-	//´ÓµÚÒ»¸ö·ÇÒ¶×Ó½áµã¿ªÊ¼µ÷Õû
-	//½áµãiµÄË«Ç×Îª£º i-1/2£»
+	//ä»ç¬¬ä¸€ä¸ªéå¶å­ç»“ç‚¹å¼€å§‹è°ƒæ•´
+	//ç»“ç‚¹içš„åŒäº²ä¸ºï¼š i-1/2ï¼›
 	int root = (size - 2) >> 1;
 	for (root; root >= 0; root--)
 	{
-		//ÏòÏÂµ÷Õû
+		//å‘ä¸‹è°ƒæ•´
 		AdjustDown(hp, root);
 	}
 }
-//¼ìÑéÈİÁ¿
+//æ£€éªŒå®¹é‡
 void CheckCapacity(Heap *hp)
 {
 	int newcapacity = 0;
@@ -83,7 +83,7 @@ void CheckCapacity(Heap *hp)
 	}
 }
 
-//ÏòÉÏµ÷Õû
+//å‘ä¸Šè°ƒæ•´
 void AdjustUp(Heap *hp, int parent)
 {
 	int child = 0;
@@ -103,7 +103,7 @@ void AdjustUp(Heap *hp, int parent)
 		}
 	}
 }
-//²åÈë¶Ñ
+//æ’å…¥å †
 void InsertHeap(Heap *hp, HDataType data)
 {
 	assert(hp);
@@ -111,22 +111,22 @@ void InsertHeap(Heap *hp, HDataType data)
 	CheckCapacity(hp);
 	hp->data[hp->size++] = data;
 	root = (hp->size - 2) >> 1;
-	//ÏòÉÏµ÷Õû
+	//å‘ä¸Šè°ƒæ•´
 	AdjustUp(hp, root);
 }
 
 
-//É¾³ı
+//åˆ é™¤
 void DeleteHeap(Heap *hp)
 {
 	assert(hp);
-	//¶Ñ¶¥ÔªËØºÍ×îºóÒ»¸öÔªËØ½»»»
+	//å †é¡¶å…ƒç´ å’Œæœ€åä¸€ä¸ªå…ƒç´ äº¤æ¢
 	Swap(&hp->data[0], &hp->data[hp->size-1]);
 	hp->size--;
-	//ÏòÏÂµ÷Õû
+	//å‘ä¸‹è°ƒæ•´
 	AdjustDown(hp, 0);
 }
-//´òÓ¡¶Ñ
+//æ‰“å°å †
 void PrintHeap(Heap *hp)
 {
 	int i = 0;
@@ -137,7 +137,7 @@ void PrintHeap(Heap *hp)
 	printf("\n");
 }
 
-//¶ÑÅÅĞò
+//å †æ’åº
 void SortHeap(Heap *hp)
 {
 	int i = 0;
@@ -146,15 +146,15 @@ void SortHeap(Heap *hp)
 	count = hp->size;
 	for (i = 0; i < count - 1; i++)
 	{
-		//µÚÒ»¸öÔªËØÓë×îºóÒ»¸ö½»»»
+		//ç¬¬ä¸€ä¸ªå…ƒç´ ä¸æœ€åä¸€ä¸ªäº¤æ¢
 		Swap(&hp->data[0], &hp->data[hp->size - 1]);
 		hp->size--;
-		//ÏòÏÂµ÷Õû³É×îĞ¡¶Ñ
+		//å‘ä¸‹è°ƒæ•´æˆæœ€å°å †
 		AdjustDown(hp, 0);
 	}
 	hp->size = count;
 }
-//Ïú»Ù¶Ñ
+//é”€æ¯å †
 void DestroyHeap(Heap *hp)
 {
 	assert(hp);
