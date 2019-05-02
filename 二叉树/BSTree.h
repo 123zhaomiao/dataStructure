@@ -3,7 +3,7 @@
 #include<stdlib.h>
 #include<malloc.h>
 
-//¶ş²æÊ÷µÄ½á¹¹
+//äºŒå‰æ ‘çš„ç»“æ„
 typedef int BSDataType;
 typedef struct BSTree
 {
@@ -11,17 +11,17 @@ typedef struct BSTree
 	struct BSTree *_pright;
 	BSDataType _data;
 }BSTree;
-//³õÊ¼»¯
+//åˆå§‹åŒ–
 void InitBSTree(BSTree **BSTree);
-//²åÈë
+//æ’å…¥
 int InsertBSTree(BSTree **BSTree, BSDataType data);
-//ÖĞĞò±éÀú
+//ä¸­åºéå†
 void InOrder(BSTree *BStree);
-//É¾³ı
+//åˆ é™¤
 int DeleteBSTree(BSTree **BStree, BSDataType data);
-//²éÕÒ
+//æŸ¥æ‰¾
 int  FindBSTree(BSTree *BStree, BSDataType data);
-//Ïú»Ù
+//é”€æ¯
 void DestroyBSTree(BSTree **BStree);
 
 
