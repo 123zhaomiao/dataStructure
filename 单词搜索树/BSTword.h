@@ -17,11 +17,11 @@ typedef struct BSTree
 	value _v;
 }BSWordTree;
 
-//初始化
+//鲁玫脢录禄炉
 void InitBSWordTree(BSWordTree **BSTree);
-//插入
+//虏氓脠毛
 int InsertBSWordTree(BSWordTree **BSTree, key  _k, value _v);
-//查找
+//虏茅脮脪
 char *  FindBSWordTree(BSWordTree *BStree, key  _k);
-//销毁
+//脧煤禄脵
 void DestroyBSWordTree(BSWordTree **BStree);
