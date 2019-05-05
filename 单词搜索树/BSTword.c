@@ -1,7 +1,7 @@
 #include"BSTword.h"
 
 
-//³õÊ¼»¯
+//åˆå§‹åŒ–
 void InitBSWordTree(BSWordTree **BSTree)
 {
 	assert(BSTree);
@@ -15,7 +15,7 @@ BSWordTree* BuyNode(key  k, value v)
 	BSWordTree *newnode = (BSWordTree *)malloc(sizeof(BSWordTree));
 	if (NULL == newnode)
 	{
-		//Èô¿ª±Ù¿Õ¼äÊ§°Ü£¬Ôò´òÓ¡³ö´íÎó£¬²»½øĞĞºóÃæµÄ´úÂë
+		//è‹¥å¼€è¾Ÿç©ºé—´å¤±è´¥ï¼Œåˆ™æ‰“å°å‡ºé”™è¯¯ï¼Œä¸è¿›è¡Œåé¢çš„ä»£ç 
 		assert(0);
 		return NULL;
 	}
@@ -26,7 +26,7 @@ BSWordTree* BuyNode(key  k, value v)
 
 	return newnode;
 }
-////·Çµİ¹é²åÈë
+////éé€’å½’æ’å…¥
 //int InsertBSWordTree(BSWordTree **BStree, key  k, value v)
 //{
 //	BSWordTree *cur = NULL;
@@ -34,16 +34,16 @@ BSWordTree* BuyNode(key  k, value v)
 //
 //	assert(BStree);
 //	cur = *BStree;
-//	//1.Èô¶ş²æÊ÷Îª¿Õ
+//	//1.è‹¥äºŒå‰æ ‘ä¸ºç©º
 //	if (NULL == *BStree)    
 //	{
 //		*BStree = BuyNode(k,v);
 //	}
-//	//2.Èô¶ş²æÊ÷²»Îª¿Õ  
+//	//2.è‹¥äºŒå‰æ ‘ä¸ä¸ºç©º  
 //	else
 //	{
 //		
-//		//¢Ù.Ñ°ÕÒ²åÈëµÄÎ»ÖÃ
+//		//â‘ .å¯»æ‰¾æ’å…¥çš„ä½ç½®
 //		while (cur != NULL)
 //		{
 //			parent = cur;
@@ -60,9 +60,9 @@ BSWordTree* BuyNode(key  k, value v)
 //				return 0;
 //			}
 //		}
-//		//¢Ú.½¨Á¢ĞÂ½áµã
+//		//â‘¡.å»ºç«‹æ–°ç»“ç‚¹
 //		cur = BuyNode(k, v);
-//		//¢Û.dataÈô±ÈË«Ç×´ó£¬Ôò²åÓÒ±ß£¬Èô±ÈË«Ç×Ğ¡£¬Ôò²å×ó±ß
+//		//â‘¢.dataè‹¥æ¯”åŒäº²å¤§ï¼Œåˆ™æ’å³è¾¹ï¼Œè‹¥æ¯”åŒäº²å°ï¼Œåˆ™æ’å·¦è¾¹
 //		if (strcmp(parent->_k, k) > 0)
 //		{
 //			parent->_pleft = cur;
@@ -74,7 +74,7 @@ BSWordTree* BuyNode(key  k, value v)
 //	}
 //	return 1;
 //}
-//µİ¹é²åÈë
+//é€’å½’æ’å…¥
 int InsertBSWordTree(BSWordTree **BStree, key  k, value v)
 {
 	BSWordTree *cur = NULL;
@@ -101,11 +101,11 @@ int InsertBSWordTree(BSWordTree **BStree, key  k, value v)
 
 
 
-////·Çµİ¹é²éÕÒ
+////éé€’å½’æŸ¥æ‰¾
 //char *  FindBSWordTree(BSWordTree *BStree, key  _k)
 //{
 //	BSWordTree *cur = BStree;
-//	//¸ù½ÚµãÎª¿Õ£¬¼´¶ş²æÊ÷Îª¿Õ£¬·µ»Ø0
+//	//æ ¹èŠ‚ç‚¹ä¸ºç©ºï¼Œå³äºŒå‰æ ‘ä¸ºç©ºï¼Œè¿”å›0
 //	if (BStree == NULL)
 //	{
 //		return NULL;
@@ -125,15 +125,15 @@ int InsertBSWordTree(BSWordTree **BStree, key  k, value v)
 //			cur = cur->_pright;
 //		}
 //	}
-//	//cur==NULL¼´Ã»ÓĞÕÒµ½ÔªËØºÍdataÏàµÈ£¬·µ»Ønull
+//	//cur==NULLå³æ²¡æœ‰æ‰¾åˆ°å…ƒç´ å’Œdataç›¸ç­‰ï¼Œè¿”å›null
 //	return NULL;
 //}
 
-//µİ¹é²éÕÒ
+//é€’å½’æŸ¥æ‰¾
 char * FindBSWordTree(BSWordTree *BStree, key  _k)
 {
 	BSWordTree *cur = BStree;
-	//¸ù½ÚµãÎª¿Õ£¬¼´¶ş²æÊ÷Îª¿Õ£¬·µ»Ø0
+	//æ ¹èŠ‚ç‚¹ä¸ºç©ºï¼Œå³äºŒå‰æ ‘ä¸ºç©ºï¼Œè¿”å›0
 	if (BStree == NULL)
 	{
 		return NULL;
@@ -151,7 +151,7 @@ char * FindBSWordTree(BSWordTree *BStree, key  _k)
 		return  FindBSWordTree(BStree->_pright, _k);
 	}
 }
-//Ïú»Ù¶ş²æÊ÷
+//é”€æ¯äºŒå‰æ ‘
 void DestroyBSWordTree(BSWordTree **BStree)
 {
 	assert(BStree);
