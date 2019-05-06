@@ -2,14 +2,14 @@
 #include<assert.h>
 #include<string.h>
 #include<stdio.h>
-//°ü×°¾²Ì¬Õ»
+//åŒ…è£…é™æ€æ ˆ
 #define MAX 20
 typedef struct s
 {
 	int arr[MAX];
 	int top;
 }stack;
-//Ã¶¾Ù
+//æšä¸¾
 enum Calc
 {
 	ADD,
@@ -18,17 +18,17 @@ enum Calc
 	DIV,
 	DATA
 };
-//²Ù×÷
+//æ“ä½œ
 typedef struct operate
 {
 	enum calc op;
 	int _data;
 }operate;
-//Õ»³õÊ¼»¯
+//æ ˆåˆå§‹åŒ–
 void StackInit(stack *s);
-//Õ»¶¥ÔªËØ
+//æ ˆé¡¶å…ƒç´ 
 int TopStack(stack *s);
-//³öÕ»
+//å‡ºæ ˆ
 void PopStack(stack *s);
-//Äæ²¨À¼±í´ïÊ½µÄÇó½â
+//é€†æ³¢å…°è¡¨è¾¾å¼çš„æ±‚è§£
 int CalcRPN(operate *cal, stack *s,int size);
