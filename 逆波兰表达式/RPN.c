@@ -1,6 +1,6 @@
 #include"RPN.h"
 
-//Õ»³õÊ¼»¯
+//æ ˆåˆå§‹åŒ–
 void StackInit(stack *s)
 {
 	assert(s);
@@ -9,7 +9,7 @@ void StackInit(stack *s)
 }
 
 
-//Êı¾İÈëÕ»
+//æ•°æ®å…¥æ ˆ
 void PushStack(stack *s, int data)
 {
 	assert(s);
@@ -21,14 +21,14 @@ void PushStack(stack *s, int data)
 	s->top++;
 }
 
-//Õ»¶¥ÔªËØ
+//æ ˆé¡¶å…ƒç´ 
 int TopStack(stack *s)
 {
 	assert(s);
 	return s->arr[s->top - 1];
 }
 
-//³öÕ»
+//å‡ºæ ˆ
 void PopStack(stack *s)
 {
 	assert(s);
@@ -36,7 +36,7 @@ void PopStack(stack *s)
 }
 
 
-//Äæ²¨À¼±í´ïÊ½µÄÇó½â
+//é€†æ³¢å…°è¡¨è¾¾å¼çš„æ±‚è§£
 int CalcRPN(operate *cal, stack *s,int size)
 {
 	int i = 0;
@@ -48,18 +48,18 @@ int CalcRPN(operate *cal, stack *s,int size)
 	{
 		if (cal->op == DATA)
 		{
-			//Êı¾İÈëÕ»
+			//æ•°æ®å…¥æ ˆ
 			PushStack(s,cal->_data);
 		}
 		else
 		{
 			ch = cal->op;
-			//Õ»¶¥ÔªËØ
+			//æ ˆé¡¶å…ƒç´ 
 			right = TopStack(s);
-			//³öÕ»
+			//å‡ºæ ˆ
 			PopStack(s);
 			left = TopStack(s);
-			//³öÕ»
+			//å‡ºæ ˆ
 			PopStack(s);
 			
 			switch (ch)
@@ -73,7 +73,7 @@ int CalcRPN(operate *cal, stack *s,int size)
 			case DIV:
 				if (right == 0)
 				{
-					printf("³ıÊıÎª0£¬·Ç·¨£¡£¡£¡\n");
+					printf("é™¤æ•°ä¸º0ï¼Œéæ³•ï¼ï¼ï¼\n");
 					return 0;
 				}
 				else
@@ -81,7 +81,7 @@ int CalcRPN(operate *cal, stack *s,int size)
 	               PushStack(s, left / right);
 				}
 				break;
-			default:printf("²Ù×÷Êı·Ç·¨£¡£¡\n"); break;
+			default:printf("æ“ä½œæ•°éæ³•ï¼ï¼\n"); break;
 			}
 		}
 		cal++;
