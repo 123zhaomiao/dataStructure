@@ -1,7 +1,7 @@
 #include"MatchBrackets.h"
 
 
-//³õÊ¼»¯
+//åˆå§‹åŒ–
 void StackInit(stack *s)
 {
 	assert(s);
@@ -9,43 +9,43 @@ void StackInit(stack *s)
 	memset(s->data,0, 20 * sizeof(DataType));
 }
 
-//Ñ¹Õ»
+//å‹æ ˆ
 void PushStack(stack *s,DataType d)
 {
 	assert(s);
 	if (s->top >= Max)
 	{
-		printf("Õ»ÒÑÂú£¡\n");
+		printf("æ ˆå·²æ»¡ï¼\n");
 		return;
 	}
-	//ÈëÕ»
+	//å…¥æ ˆ
 	s->data[s->top] = d;
-	//Õ»ÈİÁ¿
+	//æ ˆå®¹é‡
 	s->top++;
 }
 
-//Õ»ÖĞÔªËØµÄ¸öÊı
+//æ ˆä¸­å…ƒç´ çš„ä¸ªæ•°
 int LengthStack(stack *s)
 {
 	assert(s);
 	return s->top;
 }
 
-//Õ»¶¥ÔªËØ
+//æ ˆé¡¶å…ƒç´ 
 DataType TopStack(stack *s)
 {
 	assert(s);
 	return s->data[s->top - 1];
 }
 
-//³öÕ»
+//å‡ºæ ˆ
 void PopStack(stack *s)
 {
 	assert(s);
 	s->top--;
 }
 
-//Õ»ÊÇ·ñÎª¿Õ
+//æ ˆæ˜¯å¦ä¸ºç©º
 int EmptyStack(stack *s)
 {
 	assert(s);
@@ -62,35 +62,35 @@ int IsMatch(char ch)
 } 
 
 
-//À¨ºÅÆ¥Åä
+//æ‹¬å·åŒ¹é…
 void MatchBrackets(stack *s,char arr[])
 {
 	int i = 0;
 	int len = strlen(arr);
 	char top;
-	//³õÊ¼»¯Õ»
+	//åˆå§‹åŒ–æ ˆ
 	StackInit(s);
 	for (i = 0; i < len; i++)
 	{
-		//ÅĞ¶ÏÊÇ·ñÊÇÀ¨ºÅ
+		//åˆ¤æ–­æ˜¯å¦æ˜¯æ‹¬å·
 		if (IsMatch(arr[i]))
 		{
-			//ÅĞ¶ÏÀ¨ºÅÎª×óÀ¨ºÅ»¹ÊÇÓÒÀ¨ºÅ
+			//åˆ¤æ–­æ‹¬å·ä¸ºå·¦æ‹¬å·è¿˜æ˜¯å³æ‹¬å·
 			if (arr[i] == ')' || arr[i] == '}' || arr[i] == ']')
 			{
-				//Õ»Îª¿Õ£¬ÓÒÀ¨ºÅ¶àÓÚ×óÀ¨ºÅ
+				//æ ˆä¸ºç©ºï¼Œå³æ‹¬å·å¤šäºå·¦æ‹¬å·
 				if (EmptyStack(s))
 				{
-					printf("ÓÒÀ¨ºÅ¶àÓÚ×óÀ¨ºÅ£¡\n");
+					printf("å³æ‹¬å·å¤šäºå·¦æ‹¬å·ï¼\n");
 					return;
 				}
-				//²»Îª¿Õ£¬È¡Õ»¶¥ÔªËØ£¬ÅĞ¶ÏÊÇ·ñÆ¥Åä
+				//ä¸ä¸ºç©ºï¼Œå–æ ˆé¡¶å…ƒç´ ï¼Œåˆ¤æ–­æ˜¯å¦åŒ¹é…
 				else
 				{
 					top = TopStack(s);
 					if (!((arr[i] == ')'&&top == '(') || (arr[i] == ']'&&top == '[') || (arr[i] == '}'&&top == '{')))
 					{
-						printf("×óÓÒÀ¨ºÅ´ÎĞò²»Æ¥Åä\n");
+						printf("å·¦å³æ‹¬å·æ¬¡åºä¸åŒ¹é…\n");
 						return;
 					}
 					else
@@ -99,19 +99,19 @@ void MatchBrackets(stack *s,char arr[])
 			}
 			else
 			{
-				//×óÀ¨ºÅ
+				//å·¦æ‹¬å·
 				PushStack(s, arr[i]);
 			}
 		}
 	}
 	if (EmptyStack(s))
 	{
-		printf("×óÓÒÀ¨ºÅÕıÈ·Æ¥Åä!\n");
+		printf("å·¦å³æ‹¬å·æ­£ç¡®åŒ¹é…!\n");
 		return;
 	}
 	else
 	{
-		printf("×óÀ¨ºÅ¶àÓÚÓÒÀ¨ºÅ£¡\n");
+		printf("å·¦æ‹¬å·å¤šäºå³æ‹¬å·ï¼\n");
 		return;
 	}
 }
