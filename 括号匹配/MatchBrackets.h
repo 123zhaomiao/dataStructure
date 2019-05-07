@@ -13,18 +13,18 @@ typedef struct Stack
 }stack;
 
 
-//³õÊ¼»¯
+//åˆå§‹åŒ–
 void StackInit(stack *s);
-//Ñ¹Õ»
+//å‹æ ˆ
 void PushStack(stack *s,DataType d);
-//³öÕ»
+//å‡ºæ ˆ
 void PopStack(stack *s);
-//Õ»ÊÇ·ñÎª¿Õ
+//æ ˆæ˜¯å¦ä¸ºç©º
 int EmptyStack(stack *s);
-//Õ»ÖĞÔªËØµÄ¸öÊı
+//æ ˆä¸­å…ƒç´ çš„ä¸ªæ•°
 int LengthStack(stack *s);
-//Õ»¶¥ÔªËØ
+//æ ˆé¡¶å…ƒç´ 
 DataType TopStack(stack *s);
 
-//À¨ºÅÆ¥Åä
+//æ‹¬å·åŒ¹é…
 void MatchBrackets(stack *s,char arr[]);
