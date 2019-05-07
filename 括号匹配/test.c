@@ -15,7 +15,7 @@ void Test()
 	PushStack(&s, 3);
 	PushStack(&s, 4);
 	printf("length=%d\n", LengthStack(&s));
-	printf("Õ»¶¥ÔªËØÎª£º%d\n", TopStack(&s));
+	printf("æ ˆé¡¶å…ƒç´ ä¸ºï¼š%d\n", TopStack(&s));
 	PopStack(&s);
 	PopStack(&s);
 	PopStack(&s);
@@ -23,16 +23,16 @@ void Test()
 	ret = EmptyStack(&s);
 	if (ret == 1)
 	{
-		printf("Õ»¿Õ£¡\n");
+		printf("æ ˆç©ºï¼\n");
 	}
 	else
 	{
-		printf("Õ»²»¿Õ!\n");
+		printf("æ ˆä¸ç©º!\n");
 	}
 }
 
 
-//À¨ºÅÆ¥Åä
+//æ‹¬å·åŒ¹é…
 void TestMatchBrackets()
 {
 	stack s;
