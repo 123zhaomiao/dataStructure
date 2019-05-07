@@ -11,11 +11,11 @@ typedef struct stack
 	int top;
 }stack;
 
-//³õÊ¼»¯
+//åˆå§‹åŒ–
 void InitStack(stack *ps);
-//ÈëÕ»
+//å…¥æ ˆ
 void PushStack(stack *s, stack *mins, DataType d);
-//Õ»×îĞ¡Öµ
+//æ ˆæœ€å°å€¼
 DataType MinStack(stack *mins);
-//³öÕ»
+//å‡ºæ ˆ
 void PopStack(stack *s, stack *mins);
