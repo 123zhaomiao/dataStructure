@@ -15,7 +15,7 @@ int main()
 	PushStack(&s, &mins, 1);
 
 	min = MinStack(&mins);
-	printf("栈中最小值 = %d\n", min);
+	printf("艕钮脰膼脳卯膼膭脰木 = %d\n", min);
 
 	PopStack(&s,&mins);
 	PopStack(&s, &mins);
