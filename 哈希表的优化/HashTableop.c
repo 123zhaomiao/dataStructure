@@ -1,6 +1,6 @@
 #include"HashTable.h"
 
-//ËØÊı±í
+//ç´ æ•°è¡¨
 #define primesize 28
 unsigned long int _PrimeList[primesize] = {
 	53ul, 97ul, 193ul, 389ul, 769ul,
@@ -10,7 +10,7 @@ unsigned long int _PrimeList[primesize] = {
 	60331653ul, 100663319ul, 201326611ul, 402653189ul, 805306457ul,
 	1610612741ul, 3221225473ul, 4294967291ul
 };
-//×Ö·û´®×ªÕûĞÎ
+//å­—ç¬¦ä¸²è½¬æ•´å½¢
 unsigned long StrToInt(const char *str)
 {
 	unsigned int seed = 131;
@@ -22,7 +22,7 @@ unsigned long StrToInt(const char *str)
 	return (hash & 0x7FFFFFF);
 }
 
-//ËØÊı
+//ç´ æ•°
 int Prime(int capacity)
 {
 	int i = 0;
@@ -35,46 +35,46 @@ int Prime(int capacity)
 	}
 	return _PrimeList[primesize - 1];
 }
-//³õÊ¼»¯¹şÏ£±í
+//åˆå§‹åŒ–å“ˆå¸Œè¡¨
 void InitHashTable(HashTable *hashtable)
 {
 	int i = 0;
 	int capacity;
 	assert(hashtable);
-	//³õÊ¼»¯ÈİÁ¿
+	//åˆå§‹åŒ–å®¹é‡
 	capacity = 10;
-	//Ñ°ÕÒÓëËù¸øÈİÁ¿×î½üµÄËØÊı
+	//å¯»æ‰¾ä¸æ‰€ç»™å®¹é‡æœ€è¿‘çš„ç´ æ•°
 	hashtable->capacity = Prime(capacity);
-	//³õÊ¼»¯data
+	//åˆå§‹åŒ–data
 	hashtable->data = (Elem*)malloc(hashtable->capacity*sizeof(Elem));
 	if (hashtable->data == NULL)
 	{
 		assert(0);
 		return;
 	}
-	//³õÊ¼»¯Êı×é(×´Ì¬Îª¿Õ£¬ÊıÖµÎª0)
+	//åˆå§‹åŒ–æ•°ç»„(çŠ¶æ€ä¸ºç©ºï¼Œæ•°å€¼ä¸º0)
 	for (i = 0; i < hashtable->capacity; i++)
 	{
 		hashtable->data[i]._data = 0;
 		hashtable->data[i]._state = EMPTY;
 	}
 
-	//³õÊ¼»¯ÓĞĞ§ÔªËØ
+	//åˆå§‹åŒ–æœ‰æ•ˆå…ƒç´ 
 	hashtable->size.size = 0;
-	//³õÊ¼»¯±»É¾³ıµÄÔªËØ
+	//åˆå§‹åŒ–è¢«åˆ é™¤çš„å…ƒç´ 
 	hashtable->size.del = 0;
-	//³õÊ¼»¯º¯Êı
+	//åˆå§‹åŒ–å‡½æ•°
 	hashtable->Fun = StrToInt;
 }
 
 
-//¹şÏ£º¯Êı
+//å“ˆå¸Œå‡½æ•°
 int HashFun(HashTable* hashtable, DataType data)
 {
 	assert(hashtable);
 	return (hashtable->Fun(data)) % hashtable->capacity;
 }
-//ÅĞ¶ÏÊÇ·ñĞèÒªÀ©Èİ
+//åˆ¤æ–­æ˜¯å¦éœ€è¦æ‰©å®¹
 Elem * ExpandCapacity(HashTable *hashtable)
 {
 	int i = 0;
@@ -82,9 +82,9 @@ Elem * ExpandCapacity(HashTable *hashtable)
 	int newcapacity = 0;
 	int oldcapacity = hashtable->capacity;
 	Elem *new = NULL;
-	//À©ÈİÁ¿
+	//æ‰©å®¹é‡
 	newcapacity = Prime(hashtable->capacity);
-	//¿ª±ÙĞÂ¿Õ¼ä
+	//å¼€è¾Ÿæ–°ç©ºé—´
 	new = (Elem *)malloc(newcapacity*sizeof(Elem));
 	if (new == NULL)
 	{
@@ -92,7 +92,7 @@ Elem * ExpandCapacity(HashTable *hashtable)
 		return NULL;
 	}
 
-	//³õÊ¼»¯ĞÂ¿Õ¼ä
+	//åˆå§‹åŒ–æ–°ç©ºé—´
 	for (i = 0; i < newcapacity; i++)
 	{
 		new[i]._data = 0;
@@ -100,26 +100,26 @@ Elem * ExpandCapacity(HashTable *hashtable)
 	}
 
 	hashtable->capacity = newcapacity;
-	//°áÔªËØ
+	//æ¬å…ƒç´ 
 	for (i = 0; i < oldcapacity; i++)
 	{
 		if (hashtable->data[i]._state == EXIST)
 		{
-			//ĞÂ¹şÏ£µØÖ·
+			//æ–°å“ˆå¸Œåœ°å€
 			addr = HashFun(hashtable, hashtable->data[i]._data);
-			//²åÈëĞÂ±í
+			//æ’å…¥æ–°è¡¨
 			while (new[addr]._state != EMPTY)
 			{
 #if 0
-				//ÏßĞÔÌ½²â
+				//çº¿æ€§æ¢æµ‹
 				addr++;
 				if (addr == hashtable->capacity)
 				{
 					addr = 0;
 				}
 #else
-				//¶ş´ÎÌ½²â
-				//¶ş´ÎÌ½²â
+				//äºŒæ¬¡æ¢æµ‹
+				//äºŒæ¬¡æ¢æµ‹
 				i++;
 				addr = addr + 2 * i + 1;
 				addr = addr%hashtable->capacity;
@@ -134,38 +134,38 @@ Elem * ExpandCapacity(HashTable *hashtable)
 	hashtable->data = new;
 	return new;
 }
-//²åÈë¹şÏ£±í
+//æ’å…¥å“ˆå¸Œè¡¨
 void InsertHashTable(HashTable *hashtable, DataType data)
 {
 	int i = 0;
 	int Add = 0;
 	assert(hashtable);
-	//ÅĞ¶ÏÊÇ·ñÀ©Èİ£¬Èç¹û±íÖĞµÄ¸öÊı³¬¹ı×Ô¼ºµÄ¹şÏ£Òò×Ó£¬ÔòĞèÒªÀ©Èİ
+	//åˆ¤æ–­æ˜¯å¦æ‰©å®¹ï¼Œå¦‚æœè¡¨ä¸­çš„ä¸ªæ•°è¶…è¿‡è‡ªå·±çš„å“ˆå¸Œå› å­ï¼Œåˆ™éœ€è¦æ‰©å®¹
 	if ((hashtable->size.del + hashtable->size.size) * 10 / hashtable->capacity >= 7)
 	{
 		ExpandCapacity(hashtable);
 	}
-	//¼ÆËã¹şÏ£µØÖ·
+	//è®¡ç®—å“ˆå¸Œåœ°å€
 	Add = HashFun(hashtable, data);
 
-	//¹şÏ£µØÖ·¶ÔÓ¦µÄ¿Õ¼äÎª¿ÕÔòÖ±½Ó²åÈë£¬²»Îª¿ÕÔòÏòÏÂÕÒ
+	//å“ˆå¸Œåœ°å€å¯¹åº”çš„ç©ºé—´ä¸ºç©ºåˆ™ç›´æ¥æ’å…¥ï¼Œä¸ä¸ºç©ºåˆ™å‘ä¸‹æ‰¾
 	while (hashtable->data[Add]._state != EMPTY)
 	{
-		//Èç¹ûÓĞÓëdataÏàÍ¬µÄ½áµãÔò²»²åÈë
+		//å¦‚æœæœ‰ä¸dataç›¸åŒçš„ç»“ç‚¹åˆ™ä¸æ’å…¥
 		if (hashtable->data[Add]._state == EXIST&&
 			hashtable->data[Add]._data == data)
 		{
 			return;
 		}
 #if 0
-		//ÏßĞÔÌ½²â
+		//çº¿æ€§æ¢æµ‹
 		Add++;
 		if (Add == hashtable->capacity)
 		{
 			Add = 0;
 		}
 #else
-		//¶ş´ÎÌ½²â
+		//äºŒæ¬¡æ¢æµ‹
 		i++;
 		Add = Add + 2 * i + 1;
 		Add = Add % hashtable->capacity;
@@ -176,7 +176,7 @@ void InsertHashTable(HashTable *hashtable, DataType data)
 	hashtable->size.size++;
 }
 
-//É¾³ı¹şÏ£±í
+//åˆ é™¤å“ˆå¸Œè¡¨
 int  DeleteHashTable(HashTable *hashtable, DataType data)
 {
 	int Add = 0;
@@ -184,8 +184,8 @@ int  DeleteHashTable(HashTable *hashtable, DataType data)
 	assert(hashtable);
 	if (hashtable->size.size == 0)
 	{
-		//¹şÏ£±íÎª¿Õ£¬ÎŞ·¨É¾³ı
-		printf("ÎŞ·¨É¾³ı\n");
+		//å“ˆå¸Œè¡¨ä¸ºç©ºï¼Œæ— æ³•åˆ é™¤
+		printf("æ— æ³•åˆ é™¤\n");
 		return -1;
 	}
 	else
@@ -197,9 +197,9 @@ int  DeleteHashTable(HashTable *hashtable, DataType data)
 				&&hashtable->data[Add]._data == data)
 			{
 				hashtable->data[Add]._state = DELETE;
-				//±»É¾³ıµÄÔªËØ+1
+				//è¢«åˆ é™¤çš„å…ƒç´ +1
 				hashtable->size.del++;
-				//ÓĞĞ§ÔªËØ-1
+				//æœ‰æ•ˆå…ƒç´ -1
 				hashtable->size.size--;
 				return 1;
 			}
@@ -212,19 +212,19 @@ int  DeleteHashTable(HashTable *hashtable, DataType data)
 					Add = 0;
 				}
 #else
-				//¶ş´ÎÌ½²â
+				//äºŒæ¬¡æ¢æµ‹
 				i++;
 				Add = Add + 2 * i + 1;
 				Add = Add % hashtable->capacity;
 #endif
 			}
 		}
-		//Ã»ÓĞÕÒµ½ÔªËØ£¬ÎŞ·¨É¾³ı
+		//æ²¡æœ‰æ‰¾åˆ°å…ƒç´ ï¼Œæ— æ³•åˆ é™¤
 		return -1;
 	}
 }
 
-//²éÕÒ
+//æŸ¥æ‰¾
 int FindHashTable(HashTable *hashtable, DataType data)
 {
 	int Add = 0;
@@ -232,7 +232,7 @@ int FindHashTable(HashTable *hashtable, DataType data)
 	assert(hashtable);
 	if (hashtable->size.size == 0)
 	{
-		printf("¹şÏ£±íÎª¿Õ!\n");
+		printf("å“ˆå¸Œè¡¨ä¸ºç©º!\n");
 		return -1;
 	}
 	else
@@ -252,7 +252,7 @@ int FindHashTable(HashTable *hashtable, DataType data)
 				Add = 0;
 			}
 #else
-			//¶ş´ÎÌ½²â
+			//äºŒæ¬¡æ¢æµ‹
 			i++;
 			Add = Add + 2 * i + 1;
 			Add = Add % hashtable->capacity;
@@ -262,20 +262,20 @@ int FindHashTable(HashTable *hashtable, DataType data)
 	}
 }
 
-//ÅĞ¿Õ
+//åˆ¤ç©º
 int EmptyHashTable(HashTable *hashtable)
 {
 	assert(hashtable);
 	return hashtable->size.size == 0;
 }
-//¹şÏ£±íÔªËØ¸öÊı
+//å“ˆå¸Œè¡¨å…ƒç´ ä¸ªæ•°
 int SizeHashTable(HashTable *hashtable)
 {
 	assert(hashtable);
 	return hashtable->size.size;
 }
 
-//´òÓ¡¹şÏ£±í
+//æ‰“å°å“ˆå¸Œè¡¨
 void print(HashTable *hashtable)
 {
 	int i = 0;
@@ -296,7 +296,7 @@ void print(HashTable *hashtable)
 	}
 }
 
-//Ïú»Ù¹şÏ£±í
+//é”€æ¯å“ˆå¸Œè¡¨
 void DestroyHashTable(HashTable *hashtable)
 {
 	assert(hashtable);
