@@ -20,8 +20,8 @@ typedef struct Elem
 
 typedef struct Size
 {
-	int size; //¹şÏ£±íÖĞÓĞĞ§ÔªËØ¸öÊı
-	int del;  //¹şÏ£±í±»É¾³ıÔªËØµÄ¸öÊı
+	int size; //å“ˆå¸Œè¡¨ä¸­æœ‰æ•ˆå…ƒç´ ä¸ªæ•°
+	int del;  //å“ˆå¸Œè¡¨è¢«åˆ é™¤å…ƒç´ çš„ä¸ªæ•°
 }Size;
 typedef struct HashTable
 {
@@ -30,19 +30,19 @@ typedef struct HashTable
 	Size size;
 	SDTINT Fun;
 }HashTable;
-//³õÊ¼»¯¹şÏ£±í
+//åˆå§‹åŒ–å“ˆå¸Œè¡¨
 void InitHashTable(HashTable *hashtable);
-//²åÈë¹şÏ£±í
+//æ’å…¥å“ˆå¸Œè¡¨
 void InsertHashTable(HashTable *hashtable, DataType data);
-//É¾³ı¹şÏ£±í
+//åˆ é™¤å“ˆå¸Œè¡¨
 int  DeleteHashTable(HashTable *hashtable, DataType data);
-//²éÕÒ
+//æŸ¥æ‰¾
 int FindHashTable(HashTable *hashtable, DataType data);
-//ÅĞ¿Õ
+//åˆ¤ç©º
 int EmptyHashTable(HashTable *hashtable);
-//¹şÏ£±íÔªËØ¸öÊı
+//å“ˆå¸Œè¡¨å…ƒç´ ä¸ªæ•°
 int SizeHashTable(HashTable *hashtable);
-//´òÓ¡¹şÏ£±í
+//æ‰“å°å“ˆå¸Œè¡¨
 void print(HashTable *hashtable);
-//Ïú»Ù¹şÏ£±í
+//é”€æ¯å“ˆå¸Œè¡¨
 void DestroyHashTable(HashTable *hashtable);
