@@ -1,34 +1,34 @@
 #include"SeqList.h"
 
-//³õÊ¼»¯º¯Êı
+//åˆå§‹åŒ–å‡½æ•°
 void SeqListInit(qSeqList seq)
 {
 	assert(seq);
-	//³õÊ¼»¯Õû¸öÊı×é
+	//åˆå§‹åŒ–æ•´ä¸ªæ•°ç»„
 	memset(seq->data,0, MAX*sizeof(DataType));
-	//³õÊ¼»¯sz
+	//åˆå§‹åŒ–sz
 	seq->sz = 0;
 }
 
 
-//Î²²å·¨
+//å°¾æ’æ³•
 void PushBack(qSeqList seq, DataType data)
 {
 	assert(seq);
-	//ÅĞ¶ÏÊÇ·ñ¿ÉÒÔ²åÈë¼´ÅĞ¶ÏÈİÁ¿ÊÇ·ñĞ¡ÓÚMAX
+	//åˆ¤æ–­æ˜¯å¦å¯ä»¥æ’å…¥å³åˆ¤æ–­å®¹é‡æ˜¯å¦å°äºMAX
 	if (seq->sz >= MAX)
 	{
-		printf("ÈİÁ¿ÒÑÂú£¬ÎŞ·¨²åÈë£¡\n");
+		printf("å®¹é‡å·²æ»¡ï¼Œæ— æ³•æ’å…¥ï¼\n");
 		return;
 	}
-	//½«Êı¾İ²åÈëµ½µÚseq->szµÄÎ»ÖÃÉÏ
+	//å°†æ•°æ®æ’å…¥åˆ°ç¬¬seq->szçš„ä½ç½®ä¸Š
 	seq->data[seq->sz] = data;
-	//ÈİÁ¿++
+	//å®¹é‡++
 	seq->sz++;
 }
 
 
-//´òÓ¡
+//æ‰“å°
 void PrintSeqList(qSeqList seq)
 {
 	int i = 0;
@@ -40,63 +40,63 @@ void PrintSeqList(qSeqList seq)
 	printf("\n");
 }
 
-//Î²²¿É¾³ı
+//å°¾éƒ¨åˆ é™¤
 void PopBack(qSeqList seq)
 {
 	assert(seq);
-   //ÅĞ¶ÏÊÇ·ñ¿ÉÒÔÉ¾³ı
+   //åˆ¤æ–­æ˜¯å¦å¯ä»¥åˆ é™¤
 	if (seq->sz == 0)
 	{
-		printf("Êı×éÎª¿Õ£¬²»¿ÉÒÔÉ¾³ı!");
+		printf("æ•°ç»„ä¸ºç©ºï¼Œä¸å¯ä»¥åˆ é™¤!");
 		return;
 	}
-	//ÈİÁ¿--
+	//å®¹é‡--
 	seq->sz--;
 }
 
-//Í·²¿²åÈë
+//å¤´éƒ¨æ’å…¥
 void PushFront(qSeqList seq, DataType data)
 {
 	int i;
 	assert(seq);
-	//ÅĞ¶ÏÊÇ·ñ¿ÉÒÔ²åÈë
+	//åˆ¤æ–­æ˜¯å¦å¯ä»¥æ’å…¥
 	if (seq->sz >= MAX)
 	{
-		printf("Êı×éÒÑÂú£¬²»ÄÜ²åÈë£¡\n");
+		printf("æ•°ç»„å·²æ»¡ï¼Œä¸èƒ½æ’å…¥ï¼\n");
 		return;
 	}
-	//ÔªËØÈ«²¿ºóÒÆ
+	//å…ƒç´ å…¨éƒ¨åç§»
 	for (i = seq->sz - 1 ; i >= 0; i--)
 	{
 		seq->data[i + 1] = seq->data[i];
 	}
-	//²åÈë
+	//æ’å…¥
 	seq->data[0] = data;
-	//ÈİÁ¿++
+	//å®¹é‡++
 	seq->sz++;
 }
 
-//Í·²¿É¾³ı
+//å¤´éƒ¨åˆ é™¤
 void PopFront(qSeqList seq)
 {
 	int i = 0;
 	assert(seq);
-	//ÅĞ¶ÏÊÇ·ñ¿ÉÒÔÉ¾³ı
+	//åˆ¤æ–­æ˜¯å¦å¯ä»¥åˆ é™¤
 	if (seq->sz == 0)
 	{
-		printf("Êı×éÎª¿Õ£¬²»ÄÜÉ¾³ı!\n");
+		printf("æ•°ç»„ä¸ºç©ºï¼Œä¸èƒ½åˆ é™¤!\n");
 		return;
 	}
-	//Ç°ÒÆ
+	//å‰ç§»
 	for (i = 1; i < seq->sz; i++)
 	{
 		seq->data[i - 1] = seq->data[i];
 	}
-	//ÈİÁ¿--
+	//å®¹é‡--
 	seq->sz--;
 }
 
-//²éÕÒÖ¸¶¨ÔªËØ·µ»ØÏÂ±ê
+//æŸ¥æ‰¾æŒ‡å®šå…ƒç´ è¿”å›ä¸‹æ ‡
 int  Front(qSeqList seq, DataType data)
 {
 	int i = 0;
@@ -109,50 +109,50 @@ int  Front(qSeqList seq, DataType data)
 	return -1;
 }
 
-//Ö¸¶¨Î»ÖÃ²åÈë
+//æŒ‡å®šä½ç½®æ’å…¥
 void Insert(qSeqList seq, int pos, DataType data)
 {
 	int i = 0;
 	assert(seq);
-	//ÅĞ¶ÏÊÇ·ñ¿ÉÒÔ²åÈë
+	//åˆ¤æ–­æ˜¯å¦å¯ä»¥æ’å…¥
 	if (seq->sz >= MAX)
 	{
-		printf("Êı×éÒÑÂú£¬²»ÄÜ²åÈë£¡\n");
+		printf("æ•°ç»„å·²æ»¡ï¼Œä¸èƒ½æ’å…¥ï¼\n");
 		return;
 	}
-	//Ö¸¶¨Î»ÖÃÒÔ¼°Ö®ºóµÄÔªËØºóÒÆ
+	//æŒ‡å®šä½ç½®ä»¥åŠä¹‹åçš„å…ƒç´ åç§»
 	for (i = seq->sz - 1; i >= pos; i--)
 	{
 		seq->data[i + 1] = seq->data[i];
 	}
-	//Ö¸¶¨Î»ÖÃ²åÈë
+	//æŒ‡å®šä½ç½®æ’å…¥
 	seq->data[pos] = data;
-	//ÈİÁ¿++
+	//å®¹é‡++
 	seq->sz++;
 }
 
-//Ö¸¶¨Î»ÖÃÉ¾³ı
+//æŒ‡å®šä½ç½®åˆ é™¤
 void Erase(qSeqList seq, int pos)
 {
 	int i = 0;
 	assert(seq);
-	//ÅĞ¶ÏÊÇ·ñ¿ÉÒÔÉ¾³ı
+	//åˆ¤æ–­æ˜¯å¦å¯ä»¥åˆ é™¤
 	if (seq->sz == 0)
 	{
-		printf("Êı×éÎª¿Õ£¬²»ÄÜ±»É¾³ı£¡\n");
+		printf("æ•°ç»„ä¸ºç©ºï¼Œä¸èƒ½è¢«åˆ é™¤ï¼\n");
 		return;
 	}
-	//Ö¸¶¨Î»ÖÃÖ®ºóµÄËùÓĞÔªËØÇ°ÒÆ
+	//æŒ‡å®šä½ç½®ä¹‹åçš„æ‰€æœ‰å…ƒç´ å‰ç§»
 	for (i = pos + 1; i < seq->sz; i++)
 	{
 		seq->data[i - 1] = seq->data[i];
 	}
-	//ÈİÁ¿--
+	//å®¹é‡--
 	seq->sz--;
 }
 
 
-//É¾³ıÖ¸¶¨ÔªËØ
+//åˆ é™¤æŒ‡å®šå…ƒç´ 
 void Remove(qSeqList seq, DataType data)
 {
 
@@ -162,55 +162,55 @@ void Remove(qSeqList seq, DataType data)
 	{
 		if (seq->data[i] == data)
 		{
-			break;     //Ìø³öÑ­»·£¬i¼´ÎªÖ¸¶¨Î»ÖÃ
+			break;     //è·³å‡ºå¾ªç¯ï¼Œiå³ä¸ºæŒ‡å®šä½ç½®
 		}
 	}
-	if (i < seq->sz)   //ÈôiÓĞĞ§
+	if (i < seq->sz)   //è‹¥iæœ‰æ•ˆ
 	{
 		int j = 0;
-		for (j = i + 1; j < seq->sz ; j++)               // iÏÂ±ê¼´ÎªÉ¾³ıµÄ¶ÔÏó
+		for (j = i + 1; j < seq->sz ; j++)               // iä¸‹æ ‡å³ä¸ºåˆ é™¤çš„å¯¹è±¡
 		{
-			seq->data[j - 1] = seq->data[j];           //Ö¸¶¨ÔªËØÖ®ºóµÄËùÓĞÔªËØÇ°ÒÆ
+			seq->data[j - 1] = seq->data[j];           //æŒ‡å®šå…ƒç´ ä¹‹åçš„æ‰€æœ‰å…ƒç´ å‰ç§»
 		}
-		//ÈİÁ¿--
+		//å®¹é‡--
 		seq->sz--;
 	}
 }
 
 
-//É¾³ıÈ«²¿Ö¸¶¨ÔªËØ
+//åˆ é™¤å…¨éƒ¨æŒ‡å®šå…ƒç´ 
 void Removeall(qSeqList seq, DataType data)
 {
 	int i = 0;
 	assert(seq);
 	for (i = 0; i < seq->sz; i++)
 	{
-		if (seq->data[i] == data)       // iÏÂ±ê¼´ÎªÉ¾³ı¶ÔÏóµÄÎ»ÖÃ
+		if (seq->data[i] == data)       // iä¸‹æ ‡å³ä¸ºåˆ é™¤å¯¹è±¡çš„ä½ç½®
 		{
 			int j = 0;
-			for (j = i + 1; j < seq->sz; j++)    //Ö¸¶¨ÔªËØÖ®ºóµÄËùÓĞÔªËØÇ°ÒÆ 
+			for (j = i + 1; j < seq->sz; j++)    //æŒ‡å®šå…ƒç´ ä¹‹åçš„æ‰€æœ‰å…ƒç´ å‰ç§» 
 			{
 				seq->data[j - 1] = seq->data[j];          
 			}
-			//ÈİÁ¿--
+			//å®¹é‡--
 			seq->sz--;
 		}
 	}
 }
 
 
-//·µ»ØË³Ğò±íµÄ´óĞ¡
+//è¿”å›é¡ºåºè¡¨çš„å¤§å°
 int size(qSeqList seq)
 {
 	assert(seq);
 	return seq->sz;
 }
 
-//ÅĞ¶Ï½á¹¹ÌåÊÇ·ñÎª¿Õ
+//åˆ¤æ–­ç»“æ„ä½“æ˜¯å¦ä¸ºç©º
 int Empty(qSeqList seq)
 {
 	assert(seq);
-	return seq->sz == 0;//µÈÊ½³ÉÁ¢·µ»ØÕæ(1)
+	return seq->sz == 0;//ç­‰å¼æˆç«‹è¿”å›çœŸ(1)
 }
 
 static swap(DataType * px, DataType * py)
@@ -220,7 +220,7 @@ static swap(DataType * px, DataType * py)
 	*px = *py;
 	*py = tmp;
 }
-//Ã°ÅİÅÅĞò
+//å†’æ³¡æ’åº
 void Bubble(qSeqList seq)
 {
 	int i = 0;
@@ -234,32 +234,32 @@ void Bubble(qSeqList seq)
 		{
 			if (seq->data[j] < seq->data[j + 1])
 			{
-				swap(seq->data + j, seq->data + j + 1); //½»»»
-				flag = 1;     //ÓÃÓÚ½ÚÔ¼Ê±¼ä£¬Èç¹ûflag²»¸Ä±ä£¬Ö¤Ã÷¸Ã´ÎÓĞĞò£¬²»ÓÃ½øĞĞÏÂ´Î
+				swap(seq->data + j, seq->data + j + 1); //äº¤æ¢
+				flag = 1;     //ç”¨äºèŠ‚çº¦æ—¶é—´ï¼Œå¦‚æœflagä¸æ”¹å˜ï¼Œè¯æ˜è¯¥æ¬¡æœ‰åºï¼Œä¸ç”¨è¿›è¡Œä¸‹æ¬¡
 			}
 		}
-		if (flag == 0)   //Ñ­»·Ò»´ÎºóÅĞ¶ÏflagÊÇ·ñÎª0£¬Èç¹ûÎª0£¬¼´ÓĞĞò£¬Ö±½Ó·µ»Ø
+		if (flag == 0)   //å¾ªç¯ä¸€æ¬¡ååˆ¤æ–­flagæ˜¯å¦ä¸º0ï¼Œå¦‚æœä¸º0ï¼Œå³æœ‰åºï¼Œç›´æ¥è¿”å›
 			return;
 	}
 }
 
-//Ñ¡ÔñÅÅĞò
+//é€‰æ‹©æ’åº
 void Selectsort(qSeqList seq)
 {
-	int maxpos = 0;//×î´óÖµµÄÏÂ±ê
+	int maxpos = 0;//æœ€å¤§å€¼çš„ä¸‹æ ‡
 	int i = 0;
 	int j = 0;
 	assert(seq);
 	for (i = 0; i < seq->sz-1; i++)
 	{
 		maxpos = 0;
-		//Ñ°ÕÒ×î´óÖµ
+		//å¯»æ‰¾æœ€å¤§å€¼
 		for (j = 1; j < seq->sz-i ; j++)
 		{
 			if (seq->data[j] > seq->data[maxpos])
 				maxpos = j ;             
 		}
-		//Èô×î´óÖµ²»ÊÇ×îºóÒ»¸öÔªËØ£¬Ôò½«×î´óÖµºÍ×îºóÒ»¸öÔªËØ½»»»
+		//è‹¥æœ€å¤§å€¼ä¸æ˜¯æœ€åä¸€ä¸ªå…ƒç´ ï¼Œåˆ™å°†æœ€å¤§å€¼å’Œæœ€åä¸€ä¸ªå…ƒç´ äº¤æ¢
 		if (maxpos != j-1)
 		{
 			swap(seq->data + maxpos, seq->data +j-1);
@@ -267,20 +267,20 @@ void Selectsort(qSeqList seq)
 	}
 }
 
-//Ñ¡ÔñÅÅĞòµÄÓÅ»¯
+//é€‰æ‹©æ’åºçš„ä¼˜åŒ–
 void SelectsortOp(qSeqList seq)
 {
 	int left = 0;
 	int right = seq->sz - 1;
 	int i = 0;
-	int maxpos = 0;  //×î´óÖµÏÂ±ê
-	int minpos = 0;  //×îĞ¡ÖµÏÂ±ê
+	int maxpos = 0;  //æœ€å¤§å€¼ä¸‹æ ‡
+	int minpos = 0;  //æœ€å°å€¼ä¸‹æ ‡
 	assert(seq);
 	while (left <= right)
 	{
 		maxpos = left;
 		minpos = left;
-		for (i = left+1; i <= right; i++)     //ÕÒ³ö×î´óÖµºÍ×îĞ¡Öµ
+		for (i = left+1; i <= right; i++)     //æ‰¾å‡ºæœ€å¤§å€¼å’Œæœ€å°å€¼
 		{
 			if (seq->data[i]>seq->data[maxpos])
 				maxpos = i;
@@ -289,24 +289,24 @@ void SelectsortOp(qSeqList seq)
 		}
 		if (maxpos != right)
 		{
-			swap(seq->data + maxpos, seq->data + right);  //×î´óÖµ·ÅÔÚ×îÓÒ±ß
+			swap(seq->data + maxpos, seq->data + right);  //æœ€å¤§å€¼æ”¾åœ¨æœ€å³è¾¹
 		}
-		//Èç¹û×îĞ¡ÖµÔÚrightÖ¸ÏòµÄÎ»ÖÃ£¬ÓÉÓÚrightÖ¸ÏòµÄÎ»ÖÃÒÑ¾­±ä³ÉÁË×î´óÖµ
-		//ËùÒÔÓ¦¸ÃĞŞ¸Ä×îĞ¡ÖµµÄÏÂ±ê£¬Ê¹µÃÆäµ½Ô­À´×î´óÖµµÄµØ·½
+		//å¦‚æœæœ€å°å€¼åœ¨rightæŒ‡å‘çš„ä½ç½®ï¼Œç”±äºrightæŒ‡å‘çš„ä½ç½®å·²ç»å˜æˆäº†æœ€å¤§å€¼
+		//æ‰€ä»¥åº”è¯¥ä¿®æ”¹æœ€å°å€¼çš„ä¸‹æ ‡ï¼Œä½¿å¾—å…¶åˆ°åŸæ¥æœ€å¤§å€¼çš„åœ°æ–¹
 		if (minpos == right)
 		{
 			minpos = maxpos;   
 		}
 		if (minpos != left)
 		{
-			swap(seq->data + minpos, seq->data + left);    //×îĞ¡Öµ·ÅÔÚ×î×ó±ß
+			swap(seq->data + minpos, seq->data + left);    //æœ€å°å€¼æ”¾åœ¨æœ€å·¦è¾¹
 		}
 		left++;
 		right--;
 	}
 }
 
-//¶ş·Ö²éÕÒ
+//äºŒåˆ†æŸ¥æ‰¾
 int BinarySearch(qSeqList seq, DataType data)
 {
 	int left = 0;
@@ -316,11 +316,11 @@ int BinarySearch(qSeqList seq, DataType data)
 	while (left <= right)
 	{
 		mid = left + (right - left) / 2;
-		if (seq->data[mid] > data) //ÒªÕÒµÄÊı¾İÔÚmid×ó±ß
+		if (seq->data[mid] > data) //è¦æ‰¾çš„æ•°æ®åœ¨midå·¦è¾¹
 		{
 			right = mid - 1;
 		}
-		else if (seq->data[mid] < data)//ÒªÕÒµÄÊı¾İÔÚmid×ó±ß
+		else if (seq->data[mid] < data)//è¦æ‰¾çš„æ•°æ®åœ¨midå·¦è¾¹
 		{
 			left = mid + 1;
 		}
@@ -329,10 +329,10 @@ int BinarySearch(qSeqList seq, DataType data)
 			return mid;
 		}
 	}
-	return -1;  //Ã»ÕÒµ½
+	return -1;  //æ²¡æ‰¾åˆ°
 }
 
-//¶ş·Ö²éÕÒµÄµİ¹é
+//äºŒåˆ†æŸ¥æ‰¾çš„é€’å½’
 int BinarySearch_R(qSeqList seq, int left, int right, DataType data)
 {
 	int mid = left + (right - left) / 2;
