@@ -1,7 +1,7 @@
 #include"share.h"
 
 
-//¹²ÏíÕ»³õÊ¼»¯
+//å…±äº«æ ˆåˆå§‹åŒ–
 void InitShared(sharedstack *s)
 {
 	assert(s);
@@ -10,7 +10,7 @@ void InitShared(sharedstack *s)
 	s->top2 = s->capacity - 1;
 	s->data = (DataType *)malloc(s->capacity*sizeof(DataType));
 }
-//À©Èİ
+//æ‰©å®¹
 void ExpandCapacity(sharedstack *s)
 {
 	DataType *Newnode = NULL;
@@ -18,35 +18,35 @@ void ExpandCapacity(sharedstack *s)
 	int i = 0;
 	if (s->top1 <= s->top2)
 	{
-		//²»ÓÃÀ©Èİ£¬Ö±½Ó·µ»Ø
+		//ä¸ç”¨æ‰©å®¹ï¼Œç›´æ¥è¿”å›
 		return ;
 	}
 	newcapacity = s->capacity * 2;
 	Newnode = (DataType*)malloc(newcapacity*sizeof(DataType));
 	if (Newnode == NULL)
 	{
-		printf("ĞÂ¿Õ¼ä¿ª±ÙÊ§°Ü£¡\n");
+		printf("æ–°ç©ºé—´å¼€è¾Ÿå¤±è´¥ï¼\n");
 		return ;
 	}
-	//°áÒÆÕ»1ÔªËØ
+	//æ¬ç§»æ ˆ1å…ƒç´ 
 	for (i = 0; i < s->top1; i++)
 	{
 		Newnode[i] = s->data[i];
 	}
-	//°áÒÆÕ»2ÔªËØ
+	//æ¬ç§»æ ˆ2å…ƒç´ 
 	for (i = s->capacity - 1; i>s->top2; i--)
 	{
 		Newnode[i+s->capacity]=s->data[i];
 	}
-	//¸Ä±äÕ»2µÄÕ»¶¥ºÍÈİÁ¿
+	//æ”¹å˜æ ˆ2çš„æ ˆé¡¶å’Œå®¹é‡
 	s->top2 = s->top2 + s->capacity;
 	s->capacity = newcapacity;
 
-	//ÊÍ·ÅÖ®Ç°µÄ¿Õ¼ä
+	//é‡Šæ”¾ä¹‹å‰çš„ç©ºé—´
 	free(s->data);
 	s->data = Newnode;
 }
-//ÈëÕ»
+//å…¥æ ˆ
 void PushSharedStack(sharedstack *s, DataType d, int which)
 {
 	assert(s);
@@ -60,7 +60,7 @@ void PushSharedStack(sharedstack *s, DataType d, int which)
 		s->data[s->top2--] = d;
 	}
 }
-//³öÕ»
+//å‡ºæ ˆ
 void PopSharedStack(sharedstack *s, int which)
 {
 	assert(s);
@@ -68,7 +68,7 @@ void PopSharedStack(sharedstack *s, int which)
 	{
 		if (s->top1 == 0)
 		{
-			printf("Õ»1¿Õ£¡\n");
+			printf("æ ˆ1ç©ºï¼\n");
 			return;
 		}
 		else
@@ -80,7 +80,7 @@ void PopSharedStack(sharedstack *s, int which)
 	{
 		if (s->top2 == s->capacity - 1)
 		{
-			printf("Õ»2¿Õ£¡\n");
+			printf("æ ˆ2ç©ºï¼\n");
 			return;
 		}
 		else
@@ -89,7 +89,7 @@ void PopSharedStack(sharedstack *s, int which)
 		}
 	}
 }
-//Õ»¶¥ÔªËØ
+//æ ˆé¡¶å…ƒç´ 
 DataType SharedStackTop(sharedstack *s, int which)
 {
 	assert(s);
@@ -97,7 +97,7 @@ DataType SharedStackTop(sharedstack *s, int which)
 	{
 		if (s->top1 == 0)
 		{
-			printf("Õ»1¿Õ£¡\n");
+			printf("æ ˆ1ç©ºï¼\n");
 			return -1;
 		}
 		else
@@ -107,14 +107,14 @@ DataType SharedStackTop(sharedstack *s, int which)
 	{
 		if (s->top2 == s->capacity - 1)
 		{
-			printf("Õ»2¿Õ£¡\n");
+			printf("æ ˆ2ç©ºï¼\n");
 			return -1;
 		}
 		else
 			return s->data[s->top2 + 1];
 	}
 }
-//Õ»³¤¶Ì
+//æ ˆé•¿çŸ­
 int SharedStackSize(sharedstack *s, int which)
 {
 	assert(s);
