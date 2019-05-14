@@ -19,15 +19,15 @@ typedef struct BSTipadd
 
 
 
-//³õÊ¼»¯
+//åˆå§‹åŒ–
 void InitBSIpTree(BSIpTree **BSTree);
-//²åÈë
+//æ’å…¥
 int InsertBSIpTree(BSIpTree **BSTree, char *add,int num);
-//²éÕÒ
+//æŸ¥æ‰¾
 char *  FindBSIpTree(BSIpTree *BStree, int v);
-//ÖĞĞò±éÀú
+//ä¸­åºéå†
 void InOrder(BSIpTree *BStree);
-//É¾³ı
+//åˆ é™¤
 int DeleteBSWordTree(BSIpTree **BStree, int v);
-//Ïú»Ù
+//é”€æ¯
 void DestroyBSIpTree(BSIpTree **BStree);
