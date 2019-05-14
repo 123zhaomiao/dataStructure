@@ -1,4 +1,3 @@
-
 #include"BSTipadd.h"
 void TestBSIpadd()
 {
