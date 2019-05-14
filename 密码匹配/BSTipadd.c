@@ -1,12 +1,12 @@
 #include"BSTipadd.h"
 
-//³õÊ¼»¯
+//Â³ÃµÃŠÂ¼Â»Â¯
 void InitBSIpTree(BSIpTree **BSTree)
 {
 	assert(BSTree);
 	BSTree = NULL;
 }
-//²åÈë
+//Â²Ã¥ÃˆÃ«
 int InsertBSIpTree(BSIpTree **BSTree,char *add, int num)
 {
 	assert(BSTree);
