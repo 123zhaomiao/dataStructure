@@ -1,6 +1,5 @@
 
 #include"BSTipadd.h"
-
 void TestBSIpadd()
 {
 	BSIpTree *BSTree;
