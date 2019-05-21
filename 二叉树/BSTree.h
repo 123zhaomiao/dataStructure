@@ -2,7 +2,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<malloc.h>
-
 //二叉树的结构
 typedef int BSDataType;
 typedef struct BSTree
