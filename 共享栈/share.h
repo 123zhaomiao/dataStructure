@@ -2,7 +2,6 @@
 #include<stdlib.h>
 #include<assert.h>
 #include<string.h>
-
 #define DataType int 
 typedef struct SharedStack
 {
