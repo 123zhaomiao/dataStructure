@@ -4,7 +4,7 @@
 
 mon[2][13] = { { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 },
 { 0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 } };
-//ÅĞ¶ÏÈòÄê
+//åˆ¤æ–­é—°å¹´
 int isleap(int year)
 {
 	if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
@@ -12,23 +12,23 @@ int isleap(int year)
 	else
 		return 0;
 }
-//Äê·İµÄµÚÒ»Ìì
+//å¹´ä»½çš„ç¬¬ä¸€å¤©
 int first_day_of_year(int year)
 {
-	int base_year = 2000;  //¶¨ÒåÒ»¸ö»ù×¼Äê2000Äê
-	int first_day = 6;     //»ù×¼Ìì£º2000Äê1ÔÂ1ºÅÊÇĞÇÆÚ6
+	int base_year = 2000;  //å®šä¹‰ä¸€ä¸ªåŸºå‡†å¹´2000å¹´
+	int first_day = 6;     //åŸºå‡†å¤©ï¼š2000å¹´1æœˆ1å·æ˜¯æ˜ŸæœŸ6
 	int i = 2000;
-	int total = 0;          //ÌìÊı×ÜºÍ
+	int total = 0;          //å¤©æ•°æ€»å’Œ
 	for (i = base_year; i < year; i++)
 	{
-		total = total + 365 + isleap(i);  //isleapº¯ÊıÓÃÓÚÅĞ¶ÏÄê·İÊÇ·ñÊÇÈòÄê£¬Èç¹ûÊÇ·µ»Ø1£¬²»ÊÇ·µ»Ø0
+		total = total + 365 + isleap(i);  //isleapå‡½æ•°ç”¨äºåˆ¤æ–­å¹´ä»½æ˜¯å¦æ˜¯é—°å¹´ï¼Œå¦‚æœæ˜¯è¿”å›1ï¼Œä¸æ˜¯è¿”å›0
 	}
 	return (total + first_day) % 7;
 }
-//ÔÂ·İµÚÒ»Ìì
+//æœˆä»½ç¬¬ä¸€å¤©
 int first_day_of_month(int year, int month, int first_year)
 {
-	int total = 0;  //ÌìÊıºÍ
+	int total = 0;  //å¤©æ•°å’Œ
 	int i = 0;
 	for(i = 1; i < month; i++)
 	{
@@ -36,19 +36,19 @@ int first_day_of_month(int year, int month, int first_year)
 	}
 	return (total + first_year) % 7;
 }
-//Õ¹Ê¾ÈÕÀú
+//å±•ç¤ºæ—¥å†
 void show(int year,int  month, int first_month)
 {
 	int i = 0;
-	printf("Ò»   ¶ş   Èı   ËÄ   Îå   Áù  ÈÕ\n");
+	printf("ä¸€   äºŒ   ä¸‰   å››   äº”   å…­  æ—¥\n");
 	for (i = 0; i < first_month-1; i++)
 	{
-		printf("     ");     //ÔÂ·İµÚÒ»ÌìÊÇ´Ófirst_month¿ªÊ¼µÄ£¬ËùÒÔÊ×ÏÈ´òÓ¡first_month-1¸ö¿Õ¸ñ
+		printf("     ");     //æœˆä»½ç¬¬ä¸€å¤©æ˜¯ä»first_monthå¼€å§‹çš„ï¼Œæ‰€ä»¥é¦–å…ˆæ‰“å°first_month-1ä¸ªç©ºæ ¼
 	}
 	for (i = 1; i <= mon[isleap(year)][month]; i++)
 	{
 		printf("%-5d", i);
-		if ((first_month-1+i) % 7 ==0) //Èç¹û£¨Êı×Ö+¿Õ¸ñÊı£©%7==0£¬Ôò»»ĞĞ
+		if ((first_month-1+i) % 7 ==0) //å¦‚æœï¼ˆæ•°å­—+ç©ºæ ¼æ•°ï¼‰%7==0ï¼Œåˆ™æ¢è¡Œ
 			printf("\n");
 	}
 	printf("\n");
@@ -56,10 +56,10 @@ void show(int year,int  month, int first_month)
 int main()
 {
 	int year, month;
-	printf("Äê/ÔÂ:");  //ÊäÈëÄãÏë´òÓ¡µÄÄê·İ
+	printf("å¹´/æœˆ:");  //è¾“å…¥ä½ æƒ³æ‰“å°çš„å¹´ä»½
 	scanf("%d/%d", &year, &month);
-	int first_year = first_day_of_year(year);//Äê·İµÚÒ»Ìì
-	int first_month = first_day_of_month(year, month, first_year);//ÔÂ·İµÚÒ»Ìì
+	int first_year = first_day_of_year(year);//å¹´ä»½ç¬¬ä¸€å¤©
+	int first_month = first_day_of_month(year, month, first_year);//æœˆä»½ç¬¬ä¸€å¤©
 	show(year, month, first_month);
 	system("pause");
 	return 0;
