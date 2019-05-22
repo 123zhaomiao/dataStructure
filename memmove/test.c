@@ -1,4 +1,4 @@
-//ÈÎÒâÄÚ´æµÄ¿½±´
+//ä»»æ„å†…å­˜çš„æ‹·è´
 #include<stdio.h>
 #include<stdlib.h>
 void *my_memmove(void * dest, const void *src, size_t count)
@@ -6,7 +6,7 @@ void *my_memmove(void * dest, const void *src, size_t count)
 	char *ret = (char *)dest;
 	if (src < dest)
 	{
-		////´ÓºóÍùÇ°
+		////ä»åå¾€å‰
 		while (count--)
 		{
 			*((char*)dest + count) = *((char*)src + count);
@@ -14,7 +14,7 @@ void *my_memmove(void * dest, const void *src, size_t count)
 	}
 	else
 	{
-		//´ÓÇ°Íùºó
+		//ä»å‰å¾€å
 		while (count--)
 		{
 			*(char*)dest = *(char*)src;
