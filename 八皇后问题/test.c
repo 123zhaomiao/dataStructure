@@ -5,10 +5,10 @@
 char arr[N][N];
 struct Pos
 {
-	int xpos; //ÁĞÆ«ÒÆÁ¿
-	int ypos; //ĞĞÆ«ÒÆÁ¿
+	int xpos; //åˆ—åç§»é‡
+	int ypos; //è¡Œåç§»é‡
 }p[3] = { { -1, -1 }, { 0 ,-1 }, {1,-1 } };
-//³õÊ¼»¯Êı×é
+//åˆå§‹åŒ–æ•°ç»„
 void Init()
 {
 	int i = 0;
@@ -18,7 +18,7 @@ void Init()
 		for (j = 0; j < N; j++)
 		{
 			arr[i][j] = ' ';
-			//±ß¿òÉèÖÃÎª#
+			//è¾¹æ¡†è®¾ç½®ä¸º#
 			arr[0][j] = '#';       
 			arr[N - 1][j] = '#';
 			arr[i][0] = '#';
@@ -26,7 +26,7 @@ void Init()
 		}
 	}
 }
-//Õ¹Ê¾Êı×é
+//å±•ç¤ºæ•°ç»„
 void Show()
 {
 	int i = 0;
@@ -40,20 +40,20 @@ void Show()
 		printf("\n");
 	}
 }
-//¼ì²éÊÇ·ñ¿ÉÒÔ°Ú·Å
+//æ£€æŸ¥æ˜¯å¦å¯ä»¥æ‘†æ”¾
 int check_put( int row, int col)
 {
 	int i;
 	int ret = 1;
 	int nr = row;
 	int nc = col;
-	for (i = 0; ret&&i < 3; i++)   //ĞèÒªÅĞ¶ÏÁ½¸ö¶Ô½ÇÏßÒÔ¼°ÉÏ·½ÊÇ·ñÓĞ»Êºó
+	for (i = 0; ret&&i < 3; i++)   //éœ€è¦åˆ¤æ–­ä¸¤ä¸ªå¯¹è§’çº¿ä»¥åŠä¸Šæ–¹æ˜¯å¦æœ‰çš‡å
 	{
 		nr = row;
 		nc = col;
-		while ((arr[nr][nc] != '#')&&ret) //Ñ­»·µ½±ßÔµ½ØÖ¹
+		while ((arr[nr][nc] != '#')&&ret) //å¾ªç¯åˆ°è¾¹ç¼˜æˆªæ­¢
 		{
-			if (arr[nr][nc] == ' ')      //ÅĞ¶ÏÕâ¸öÎ»ÖÃÊÇ·ñÓĞ»Êºó
+			if (arr[nr][nc] == ' ')      //åˆ¤æ–­è¿™ä¸ªä½ç½®æ˜¯å¦æœ‰çš‡å
 			{
 				nr = nr + p[i].ypos;     
 				nc = nc + p[i].xpos;
@@ -64,12 +64,12 @@ int check_put( int row, int col)
 	}
 	return ret;
 }
-//°Ú»Êºó
+//æ‘†çš‡å
 void Find(int row)
 {
 	int j = 0;
-	static int count = 0;   //ÓÃÓÚ¼ÆËã°Ú»ÊºóÓĞ¶àÉÙÖÖÇé¿ö
-	if (row > N - 2)        //°ÚÍê1-8ĞĞºó´òÓ¡
+	static int count = 0;   //ç”¨äºè®¡ç®—æ‘†çš‡åæœ‰å¤šå°‘ç§æƒ…å†µ
+	if (row > N - 2)        //æ‘†å®Œ1-8è¡Œåæ‰“å°
 	{
 		Show();
 		count++;
@@ -79,10 +79,10 @@ void Find(int row)
 	{
 		for (j = 1; j < N - 1; j++)
 		{
-			if (check_put(row, j))  //ÅĞ¶ÏÊÇ·ñ¿ÉÒÔ·Å»Êºó£¬Èç¹û¿ÉÒÔ·µ»Ø1£»
+			if (check_put(row, j))  //åˆ¤æ–­æ˜¯å¦å¯ä»¥æ”¾çš‡åï¼Œå¦‚æœå¯ä»¥è¿”å›1ï¼›
 			{
-				arr[row][j] = '*';  //½«´ËÎ»ÖÃ·ÅÉÏ»Êºó
-				Find( row + 1);     //µİ¹é°ÚÏÂÒ»ĞĞ
+				arr[row][j] = '*';  //å°†æ­¤ä½ç½®æ”¾ä¸Šçš‡å
+				Find( row + 1);     //é€’å½’æ‘†ä¸‹ä¸€è¡Œ
 				arr[row][j] = ' ';
 			}
 		}
@@ -90,9 +90,9 @@ void Find(int row)
 }
 int main()
 {
-	//³õÊ¼»¯Êı×é  
+	//åˆå§‹åŒ–æ•°ç»„  
 	Init();
-	//°Ú»Êºó
+	//æ‘†çš‡å
 	Find(1);
 	system("pause");
 	return 0;
