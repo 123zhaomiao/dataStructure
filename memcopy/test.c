@@ -13,6 +13,7 @@ void *my_memcpy(void *dest, const void *src, size_t count)
 	}
 	return ret;
 }
+
 int main()
 {
 	int a[10];
