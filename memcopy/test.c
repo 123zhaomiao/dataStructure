@@ -1,4 +1,4 @@
-//memcpy内存拷贝(仅仅实现不相关的内存拷贝)
+//memcpy鍐呭瓨鎷疯礉(浠呬粎瀹炵幇涓嶇浉鍏崇殑鍐呭瓨鎷疯礉)
 #include<stdio.h>
 #include<stdlib.h>
 #include<assert.h>
