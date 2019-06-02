@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<assert.h>
+
 void *my_memcpy(void *dest, const void *src, size_t count)
 {
 	char *ret= (char *)dest;
