@@ -10,7 +10,7 @@ struct S
 	char sex[2];
 	struct S *next;
 };
-//±£´æ
+//ä¿å­˜
 void save(struct S ** head)
 {
 	FILE *fp = fopen("txl.txt", "w");
@@ -21,14 +21,14 @@ void save(struct S ** head)
 		exit(1);
 	}
 	while (cur != NULL)
-	{	//Ê¹ÓÃÑ­»·£¬½«ÈËÔ±ĞÅÏ¢Ò»¸öÒ»¸ö×°½øÎÄ¼şÖĞÈ¥£¬Ö±µ½×°Íê£¬curÖ¸ÏòNULL
+	{	//ä½¿ç”¨å¾ªç¯ï¼Œå°†äººå‘˜ä¿¡æ¯ä¸€ä¸ªä¸€ä¸ªè£…è¿›æ–‡ä»¶ä¸­å»ï¼Œç›´åˆ°è£…å®Œï¼ŒcuræŒ‡å‘NULL
 		fwrite(cur, sizeof(struct S), 1, fp);
 		cur = cur->next;
 	}
-	//3.¹Ø±ÕÎÄ¼ş
-	fclose(fp);	//×¢Òâ£ºfopen±ØĞëºÍfcloseÍ¬Ê±Ê¹ÓÃ
+	//3.å…³é—­æ–‡ä»¶
+	fclose(fp);	//æ³¨æ„ï¼šfopenå¿…é¡»å’ŒfcloseåŒæ—¶ä½¿ç”¨
 }
-//Õ¹Ê¾ÁªÏµÈË
+//å±•ç¤ºè”ç³»äºº
 void show(struct S *head)
 {
 	struct S*cur = head;
@@ -38,7 +38,7 @@ void show(struct S *head)
 		cur = cur->next;
 	}
 }
-//Çå¿ÕÁªÏµÈË
+//æ¸…ç©ºè”ç³»äºº
 void qingkong(struct S **head)
 {
 	struct S*cur = *head;
@@ -49,25 +49,25 @@ void qingkong(struct S **head)
 	}
 	
 }	
-//ĞŞ¸ÄÁªÏµÈË
+//ä¿®æ”¹è”ç³»äºº
 void xiugai(struct S**head)
 {
 	char arr[20];
 	struct S*cur = *head;
-	printf("ÇëÊäÈëÄãÒªĞŞ¸ÄµÄÁªÏµÈËĞÕÃû£º");
+	printf("è¯·è¾“å…¥ä½ è¦ä¿®æ”¹çš„è”ç³»äººå§“åï¼š");
 	scanf("%s", arr);
 	while (cur != NULL)
 	{
 		if (strcmp(cur->name, arr) == 0)
 		{
-			printf("ÇëÊäÈëĞŞ¸ÄºóµÄĞÅÏ¢£º\n");
-			printf("ĞÕÃû£º>");
+			printf("è¯·è¾“å…¥ä¿®æ”¹åçš„ä¿¡æ¯ï¼š\n");
+			printf("å§“åï¼š>");
 			scanf("%s", cur->name);
-			printf("µç»°£º>");
+			printf("ç”µè¯ï¼š>");
 			scanf("%s", cur->num);
-			printf("ÄêÁä£º>");
+			printf("å¹´é¾„ï¼š>");
 			scanf("%d", &cur->age);
-			printf("ĞÔ±ğ£º>");
+			printf("æ€§åˆ«ï¼š>");
 			scanf("%s", cur->sex);
 			show(*head);
 			return ;
@@ -75,9 +75,9 @@ void xiugai(struct S**head)
 		}
 		cur = cur->next;
 	}
-	printf("Ã»ÓĞ´ËÈË£¡\n");
+	printf("æ²¡æœ‰æ­¤äººï¼\n");
 }
-//ÅÅĞò
+//æ’åº
 void sort(struct S *head)
 {
 	struct S*pre = head;
@@ -108,12 +108,12 @@ void sort(struct S *head)
 	}
 	show(head);
 }
-//²éÕÒÁªÏµÈË
+//æŸ¥æ‰¾è”ç³»äºº
 void find(struct S *head)
 {
 	char arr[20];
 	struct S*cur = head;
-	printf("ÇëÊäÈëÄãÒª²éÕÒµÄÁªÏµÈËĞÕÃû£º");
+	printf("è¯·è¾“å…¥ä½ è¦æŸ¥æ‰¾çš„è”ç³»äººå§“åï¼š");
 	scanf("%s", arr);
 	while (cur != NULL)
 	{
@@ -126,22 +126,22 @@ void find(struct S *head)
 	}
 	if (cur == NULL)
 	{
-		printf("Ã»ÓĞÕÒµ½£¡\n");
+		printf("æ²¡æœ‰æ‰¾åˆ°ï¼\n");
 	}
 }
-//É¾³ıÁªÏµÈË
+//åˆ é™¤è”ç³»äºº
 void erase(struct S**head)
 {
 	struct S *cur = *head;
 	struct S *pre = NULL;
 	char arr[32] = { 0 };
-	printf("ÇëÊäÈëÄãÒªÉ¾³ıµÄÁªÏµÈËĞÕÃû£º");
+	printf("è¯·è¾“å…¥ä½ è¦åˆ é™¤çš„è”ç³»äººå§“åï¼š");
 	scanf("%s", arr);
 	while (cur!= NULL)
 	{
 		if (strcmp(cur->name, arr) == 0)
 		{
-			if (cur == *head)    //Èç¹û±»É¾³ıµÄÔªËØÊÇÍ·Ö¸Õë
+			if (cur == *head)    //å¦‚æœè¢«åˆ é™¤çš„å…ƒç´ æ˜¯å¤´æŒ‡é’ˆ
 			{
 				*head = cur->next;
 			}
@@ -156,25 +156,25 @@ void erase(struct S**head)
 	}
 	show(*head);
 }
-//Ìí¼ÓÁªÏµÈË
+//æ·»åŠ è”ç³»äºº
 void insert(struct S **head)
 {
-	//´´½¨Ò»¸öÁ´±í
+	//åˆ›å»ºä¸€ä¸ªé“¾è¡¨
 	struct S *p=(struct S*)malloc(sizeof(struct S));
-	printf("ĞÕÃû£º>");
+	printf("å§“åï¼š>");
 	scanf("%s", p->name);
-	printf("µç»°£º>");
+	printf("ç”µè¯ï¼š>");
 	scanf("%s", p->num);
-	printf("ÄêÁä£º>");
+	printf("å¹´é¾„ï¼š>");
 	scanf("%d", &p->age);
-	printf("ĞÔ±ğ£º>");
+	printf("æ€§åˆ«ï¼š>");
 	scanf("%s", p->sex);
-	p->next = NULL;    //×îºóÒ» ¸öÔªËØÖ¸ÏòÏÂÒ»¸ö½á¹¹Ìå
-	if (*head == NULL)  //²åÈëÊ×ÔªËØ
+	p->next = NULL;    //æœ€åä¸€ ä¸ªå…ƒç´ æŒ‡å‘ä¸‹ä¸€ä¸ªç»“æ„ä½“
+	if (*head == NULL)  //æ’å…¥é¦–å…ƒç´ 
 	{
 		*head = p;
 	}
-	else               // ²åÈëÆäËûÔªËØ
+	else               // æ’å…¥å…¶ä»–å…ƒç´ 
 	{
 		struct S *cur = *head;
 		while (cur->next != NULL)
@@ -188,16 +188,16 @@ void insert(struct S **head)
 void menu()
 {
 	printf("****************************************\n");
-	printf("*1   Ìí¼ÓÁªÏµÈË*******2   É¾³ıÁªÏµÈË****\n");
-	printf("*3   ²éÕÒÁªÏµÈË*******4   ÁªÏµÈËÅÅĞò****\n");
-	printf("*5   ĞŞ¸ÄÁªÏµÈË*******6   ±£´æÁªÏµÈË****\n");
-	printf("*7   ************Çå¿ÕÁªÏµÈË*************\n");
+	printf("*1   æ·»åŠ è”ç³»äºº*******2   åˆ é™¤è”ç³»äºº****\n");
+	printf("*3   æŸ¥æ‰¾è”ç³»äºº*******4   è”ç³»äººæ’åº****\n");
+	printf("*5   ä¿®æ”¹è”ç³»äºº*******6   ä¿å­˜è”ç³»äºº****\n");
+	printf("*7   ************æ¸…ç©ºè”ç³»äºº*************\n");
 	printf("****************************************\n");
 }
 int main()
 {
 	int input;
-	struct S *head = NULL; //¶¨ÒåÒ»¸ö½á¹¹Ìå±äÁ¿person
+	struct S *head = NULL; //å®šä¹‰ä¸€ä¸ªç»“æ„ä½“å˜é‡person
 	do
 	{
 		menu();
@@ -212,8 +212,8 @@ int main()
 		case 5:xiugai(&head); break;
 		case 6:save(&head); break;
 		case 7:qingkong(&head);break;
-		case 0:printf("ÍË³ö\n"); break;
-		default:printf("ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë\n"); break;
+		case 0:printf("é€€å‡º\n"); break;
+		default:printf("è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥\n"); break;
 		}
 	} while (input);
 	system("pause");
