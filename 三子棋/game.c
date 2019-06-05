@@ -1,10 +1,10 @@
 #include"game.h"
-//³õÊ¼»¯ÆåÅÌ£¬È«²¿Îª¿Õ¸ñ
+//åˆå§‹åŒ–æ£‹ç›˜ï¼Œå…¨éƒ¨ä¸ºç©ºæ ¼
 void InitBoard(char arr[ROW][COL], int row, int col)
 {
 	memset(arr, ' ', row*col*sizeof(arr[0][0]));
 }
-//´òÓ¡ÆåÅÌ
+//æ‰“å°æ£‹ç›˜
 void DisplayBoard(char arr[ROW][COL], int row, int col)
 {
 	int i = 0;
@@ -17,15 +17,15 @@ void DisplayBoard(char arr[ROW][COL], int row, int col)
 		}
 	}
 }
-//Íæ¼ÒÒÆ¶¯
+//çŽ©å®¶ç§»åŠ¨
 void PalyerMove(char arr[ROW][COL], int row, int col)
 {
 	int x, y;
 	while (1)
 	{
-		printf("ÇëÊäÈë×ø±ê£º");
+		printf("è¯·è¾“å…¥åæ ‡ï¼š");
 		scanf("%d%d", &x, &y);
-		if ((x >= 1 && x <= row) && (y >= 1 && y <= col))   //×ø±êºÏ·¨
+		if ((x >= 1 && x <= row) && (y >= 1 && y <= col))   //åæ ‡åˆæ³•
 		{
 			if (arr[x-1][y-1] == ' ')
 			{
@@ -34,22 +34,22 @@ void PalyerMove(char arr[ROW][COL], int row, int col)
 				break;
 				}
 			else
-				printf("¸Ã×ø±ê±»Õ¼ÓÃ£¬ÇëÖØÐÂÊäÈë×ø±ê£¡\n");
+				printf("è¯¥åæ ‡è¢«å ç”¨ï¼Œè¯·é‡æ–°è¾“å…¥åæ ‡ï¼\n");
 		}
 		else
-			printf("×ø±êÎÞÐ§£¬ÇëÖØÐÂÊäÈë£¡\n");
+			printf("åæ ‡æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥ï¼\n");
 	}
 	
 }
-//µçÄÔÒÆ¶¯
+//ç”µè„‘ç§»åŠ¨
 void ComputerMove(char arr[ROW][COL], int row, int col)
 {
 	    int x = 0;
 	    int y = 0;
-		printf("µçÄÔ×ß£º\n");
+		printf("ç”µè„‘èµ°ï¼š\n");
 		while (1)
 		{
-			x = rand() % 3;   //Éú³ÉËæ»ú×ø±ê
+			x = rand() % 3;   //ç”Ÿæˆéšæœºåæ ‡
 			y = rand() % 3;
 			if (arr[x][y] == ' ')
 			{
@@ -59,7 +59,7 @@ void ComputerMove(char arr[ROW][COL], int row, int col)
 			}
 		}
 }
-// ÅÐ¶ÏÆåÅÌÊÇ·ñÂú
+// åˆ¤æ–­æ£‹ç›˜æ˜¯å¦æ»¡
 int Full(char arr[ROW][COL], int row, int col)
 {
 	int  i, j;
@@ -73,33 +73,33 @@ int Full(char arr[ROW][COL], int row, int col)
 		}
 	}
 	if (count == row*col)
-		return 1;    //ÆåÅÌÂú
+		return 1;    //æ£‹ç›˜æ»¡
 	else
 		return 0;
 }
-//ÅÐ¶ÏÊäÓ®
+//åˆ¤æ–­è¾“èµ¢
 char Is_Win(char arr[ROW][COL], int row, int col)
 {
 	int i;
 	int count = 0;
-	//ÐÐÏàµÈ
+	//è¡Œç›¸ç­‰
 	for (i = 0; i < row; i++)
 	{
 		if ((arr[i][0] == arr[i][1]) && (arr[i][1] == arr[i][2]))
 			return arr[i][0];
 	}
-	// ÁÐÏàµÈ
+	// åˆ—ç›¸ç­‰
 	for (i = 0; i < col; i++)
 	{
 		if ((arr[0][i] == arr[1][i]) && (arr[1][i] == arr[2][i]))
 			return arr[0][i];
 	}
-	//¶Ô½ÇÏßÏàµÈ
+	//å¯¹è§’çº¿ç›¸ç­‰
 	if ((arr[0][0] == arr[1][1]) && (arr[1][1] == arr[2][2]))
 		return arr[0][0];
 	if ((arr[0][2] == arr[1][1]) && (arr[1][1] == arr[2][0]))
 		return arr[0][2];
-	// ÆåÅÌÂú
+	// æ£‹ç›˜æ»¡
 	if (Full(arr, ROW, COL))
 		return '1';
 	return 0;
