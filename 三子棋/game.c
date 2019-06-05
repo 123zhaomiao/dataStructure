@@ -39,7 +39,6 @@ void PalyerMove(char arr[ROW][COL], int row, int col)
 		else
 			printf("坐标无效，请重新输入！\n");
 	}
-	
 }
 //电脑移动
 void ComputerMove(char arr[ROW][COL], int row, int col)
