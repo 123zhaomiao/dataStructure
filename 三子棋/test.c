@@ -55,6 +55,7 @@ void game()
 		}	
 	}
 }
+
 void test()
 {
 	int input;
