@@ -7,50 +7,50 @@ enum play
 void menu()
 {
 	printf("********************\n");
-	printf("**** 1    ÍæÓÎÏ·****\n");
-	printf("**** 0    ÍË³ö******\n");
+	printf("**** 1    ç©æ¸¸æˆ****\n");
+	printf("**** 0    é€€å‡º******\n");
 	printf("********************\n");
 }
 void game()
 {
 	char ret;
 	char arr[ROW][COL] = { 0 };
-	InitBoard(arr, ROW, COL);    //³õÊ¼»¯ÆåÅÌ
-	DisplayBoard(arr, ROW, COL); //´òÓ¡ÆåÅÌ
+	InitBoard(arr, ROW, COL);    //åˆå§‹åŒ–æ£‹ç›˜
+	DisplayBoard(arr, ROW, COL); //æ‰“å°æ£‹ç›˜
 	while (1)
 	{
-		PalyerMove(arr, ROW, COL); //Íæ¼ÒÒÆ¶¯
-	    ret = Is_Win(arr, ROW, COL);//ÅĞ¶ÏÊäÓ®
+		PalyerMove(arr, ROW, COL); //ç©å®¶ç§»åŠ¨
+	    ret = Is_Win(arr, ROW, COL);//åˆ¤æ–­è¾“èµ¢
 		if (ret == 'x')
 		{
-			printf("Íæ¼ÒÊ¤Àû£¡\n");
+			printf("ç©å®¶èƒœåˆ©ï¼\n");
 			break;
 		}
 		else if (ret == '0')
 		{
-			printf("µçÄÔÓ®£¡\n");
+			printf("ç”µè„‘èµ¢ï¼\n");
 			break;
 		}
 		else if (ret == '1')
 		{
-			printf("Æ½¾Ö\n");
+			printf("å¹³å±€\n");
 			break;
 		}
-	   ComputerMove(arr, ROW, COL); //µçÄÔ×ß
-       ret = Is_Win(arr, ROW, COL); //ÅĞ¶ÏÊäÓ®
+	   ComputerMove(arr, ROW, COL); //ç”µè„‘èµ°
+       ret = Is_Win(arr, ROW, COL); //åˆ¤æ–­è¾“èµ¢
 		if (ret == 'x')
 		{
-			printf("Íæ¼ÒÊ¤Àû£¡\n");
+			printf("ç©å®¶èƒœåˆ©ï¼\n");
 			break;
 		}
 		else if (ret == '0')
 		{
-			printf("µçÄÔÓ®£¡\n");
+			printf("ç”µè„‘èµ¢ï¼\n");
 			break;
 		}
 		else if (ret == '1')
 		{
-			printf("Æ½¾Ö\n");
+			printf("å¹³å±€\n");
 			break;
 		}	
 	}
@@ -62,15 +62,15 @@ void test()
 	do
 	{
 		menu();
-		printf("ÇëÑ¡Ôñ£º>");
+		printf("è¯·é€‰æ‹©ï¼š>");
 		scanf("%d", &input);
 		switch (input)
 		{
 		case wanyouxi:
 			game();
 			break;
-		case tuichu:printf("ÍË³öÓÎÏ·£¡\n"); break;
-		default:printf("Ñ¡Ôñ´íÎó£¬ÇëÖØĞÂÑ¡Ôñ£¡\n");
+		case tuichu:printf("é€€å‡ºæ¸¸æˆï¼\n"); break;
+		default:printf("é€‰æ‹©é”™è¯¯ï¼Œè¯·é‡æ–°é€‰æ‹©ï¼\n");
 		}
 	} while (input);
 
