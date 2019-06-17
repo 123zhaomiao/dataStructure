@@ -1,6 +1,7 @@
 //任意内存的拷贝
 #include<stdio.h>
 #include<stdlib.h>
+
 void *my_memmove(void * dest, const void *src, size_t count)
 {
 	char *ret = (char *)dest;
