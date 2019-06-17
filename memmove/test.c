@@ -24,6 +24,7 @@ void *my_memmove(void * dest, const void *src, size_t count)
 	}
 	return ret;
 }
+
 int main()
 {
 	//int a[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
