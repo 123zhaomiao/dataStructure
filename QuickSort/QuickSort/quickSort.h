@@ -201,6 +201,7 @@ int qs1(int *arr, int begin, int end)
 	}
 	return begin;
 }
+
 /*
   挖坑法
   先将最后一个元素标记设置为第一个坑
@@ -222,7 +223,6 @@ int qs2(int *arr, int begin, int end)
 	{
 		swap(&arr[index], &arr[end]);
 	}
-
 	//第一个坑
 	int key = arr[end];
 	int k = end;
@@ -401,6 +401,7 @@ void Merge_sort(int *arr, int left, int right,int*temp)
 //归并
 void Merge_sortNor(int *arr,int size, int*temp)
 {
+
 	int left = 0;
 	int right = size;
 	int mid = left + ((right - left) >> 1);
