@@ -51,6 +51,7 @@ DataType SharedStackTop(sharedstack *s, int which)
 		else
 			return s->data[s->top1 - 1];
 	}
+	
 	else
 	{
 		if (s->top2 == Max-1)
