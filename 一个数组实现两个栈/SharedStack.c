@@ -2,6 +2,7 @@
 //共享栈初始化
 void InitShared(sharedstack *s)
 {
+	
 	assert(s);
 	s->top1 = 0;
 	s->top2 = Max - 1;
