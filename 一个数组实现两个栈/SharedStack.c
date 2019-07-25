@@ -7,6 +7,7 @@ void InitShared(sharedstack *s)
 	s->top2 = Max - 1;
 	memset(s->data, 0, Max*sizeof(DataType));
 }
+
 //入栈
 void PushSharedStack(sharedstack *s, DataType d, int which)
 {
