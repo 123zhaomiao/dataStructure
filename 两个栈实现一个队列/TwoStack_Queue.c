@@ -123,8 +123,6 @@ Datatype QueueBack(queue *q)
 		//栈1的栈顶
 		return TopStack(&q->s1);
 }
-
-
 //队列头  栈2的栈顶
 Datatype QueueFront(queue *q)
 {
