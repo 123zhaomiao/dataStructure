@@ -1,4 +1,5 @@
 #include"TwoStack_Queeue.h"
+
 //1.初始化栈
  void InitStack(stack *s)
 {
