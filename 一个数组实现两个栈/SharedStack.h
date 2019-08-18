@@ -4,6 +4,7 @@
 #include<string.h>
 #define Max 10
 #define DataType int 
+
 typedef struct SharedStack
 {
 	DataType data[Max];
